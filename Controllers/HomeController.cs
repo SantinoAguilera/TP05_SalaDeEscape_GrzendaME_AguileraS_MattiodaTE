@@ -18,6 +18,27 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Tutorial()
+    {
+        return View();
+    }
+
+    public IActionResult Comenzar()
+    {
+        int num = Escape.GetEstadoJuego();
+        return View("sala" + num);
+    }
+
+    public IActionResult Habitacion(int sala, string clave)
+    {
+        int num = Escape.GetEstadoJuego();
+        if (sala == num)
+        {
+
+        }
+        return View();
+    }
+
     public IActionResult Privacy()
     {
         return View();
