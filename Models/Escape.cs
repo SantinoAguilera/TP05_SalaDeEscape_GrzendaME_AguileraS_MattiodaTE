@@ -2,13 +2,19 @@ static class Escape
 {
     //Atributos
     public static string[] incognitasSalas {get; private set;}
-    static int estadoJuego = 1;
+    public static int estadoJuego = 1;
+    public static int salaID = 1;
+    public static int estadoSalaID = 1;
+    public static int posSalaID = 1;
 
     //Metodos
     private static void InicializarJuego()
     {
         estadoJuego = 1;
-        string[] incognitasSalas = {"29809371", "vivainfo", "462", "select contraseña from contraseñas where aula = 'ami'", "173", "true", "025358"}; //0 - 25 - 3 - 58
+        salaID = 1;
+        estadoSalaID = 1;
+        posSalaID = 1;
+        string[] incognitasSalas = {"vivainfo", "462", "select contraseña from aulas where aula = 'AMI';", "173", "true", "025358"}; //0 - 25 - 3 - 58
     }
     public static int GetEstadoJuego()
     {
