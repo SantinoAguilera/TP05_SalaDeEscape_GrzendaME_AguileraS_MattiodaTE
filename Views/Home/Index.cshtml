@@ -2,14 +2,34 @@
     ViewData["Title"] = "Index";
 }
 <header>
-
+    <nav>
+        <ul>
+            <a href='@Url.Action("Jugar", "Home")'>Jugar</a>
+            <a href='@Url.Action("Tutorial", "Home")'>Tutorial</a>
+        </ul>
+    </nav>
+    <h1>Data Breach</h1>
+    <nav>
+        <ul>
+            <a href='@Url.Action("Index", "Home")'>Menu Principal</a>
+            <a href='@Url.Action("Creditos", "Home")'>Creditos</a>
+        </ul>
+    </nav>
 </header>
 <main>
     <div>
-        <h1>Data Leak</h1>
+        <!--<img src="images/screenshots/archivo.ext">-->
+        <!--<img src="images/screenshots/archivo.ext">-->
+    </div>
+    <div>
+        <h1>DATA BREACH</h1>
         <a href='@Url.Action("Jugar", "Home")'>Jugar</a>
         <a href='@Url.Action("Tutorial", "Home")'>Tutorial</a>
         <a href='@Url.Action("Creditos", "Home")'>Creditos</a>
+    </div>
+    <div>
+        <!--<img src="images/screenshots/archivo.ext">-->
+        <!--<img src="images/screenshots/archivo.ext">-->
     </div>
 </main>
 <footer>
