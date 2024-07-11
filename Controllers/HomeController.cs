@@ -23,6 +23,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Creditos()
+    {
+        return View();
+    }
+
     public IActionResult Comenzar()
     {
         int num = Escape.GetEstadoJuego();
