@@ -1,13 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
 <header>
 
 </header>
 <main>
-    <div class="text-center">
-        <h1>Welcome</h1>
-        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div>
+        <h1>Data Leak</h1>
+        <a href='@Url.Action("Jugar", "Home")'>Jugar</a>
+        <a href='@Url.Action("Tutorial", "Home")'>Tutorial</a>
+        <a href='@Url.Action("Creditos", "Home")'>Creditos</a>
     </div>
 </main>
 <footer>
