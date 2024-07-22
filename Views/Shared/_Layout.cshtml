@@ -6,12 +6,8 @@
     <title>@ViewData["Title"] - TP05_SalaDeEscape_GrzendaME_AguileraS_MattiodaTE</title>
 
 </head>
-<body>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    @await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)
+<body class="container">
+    @RenderBody()
 </body>
 </html>

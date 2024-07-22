@@ -1,39 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Index";
 }
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/site.css">
 
 <header>
     <nav>
         <ul>
-            <a href='@Url.Action("Jugar", "Home")'>Jugar</a>
-            <a href='@Url.Action("Tutorial", "Home")'>Tutorial</a>
+            <a href='@Url.Action("Jugar", "Home")' class="button">Jugar</a>
+            <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
         </ul>
     </nav>
     <h1>Data Breach</h1>
     <nav>
         <ul>
-            <a href='@Url.Action("Index", "Home")'>Menu Principal</a>
-            <a href='@Url.Action("Creditos", "Home")'>Creditos</a>
+            <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
+            <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
         </ul>
     </nav>
 </header>
+
 <main>
-    <div>
-        <!--<img src="images/screenshots/archivo.ext">-->
-        <!--<img src="images/screenshots/archivo.ext">-->
+    <div class="imagesLeft">
+        <img src="images/screenshots/archivo.ext">
+        <img src="images/screenshots/archivo.ext">
     </div>
-    <div>
+    <div class="titleCenter">
         <h1>DATA BREACH</h1>
-        <a href='@Url.Action("Jugar", "Home")'>Jugar</a>
-        <a href='@Url.Action("Tutorial", "Home")'>Tutorial</a>
-        <a href='@Url.Action("Creditos", "Home")'>Creditos</a>
+        <h2>Lo que pasa cuando no te despiertan</h2>
+        <a href='@Url.Action("Jugar", "Home")' class="button">Jugar</a>
+        <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
+        <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
     </div>
-    <div>
-        <!--<img src="images/screenshots/archivo.ext">-->
-        <!--<img src="images/screenshots/archivo.ext">-->
+    <div class="imagesRight">
+        <img src="images/screenshots/archivo.ext">
+        <img src="images/screenshots/archivo.ext">
     </div>
 </main>
+
 <footer>
     <p>Inserte Copyright aquí © 2024-2024</p>
 </footer>
