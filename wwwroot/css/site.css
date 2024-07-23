@@ -10,6 +10,8 @@ body
     background-color: #6D9DC5;
 }
 
+/* Header */
+
 header
 {
     display: flex;
@@ -43,6 +45,8 @@ header li
     transform:scale(1.2);
 }
 
+/* Main */
+
 .indexMain
 {
     padding-top: 5%;
@@ -56,18 +60,37 @@ header li
 {
     padding-top: 5%;
     padding-bottom: 6%;
+    width: 10   0%;
     background-color: #3066BE;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.spaceAround
+.tutorialMain h1.title
+{
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.content
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.tutorialCenter
 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
 }
 
 main div
@@ -120,7 +143,49 @@ main div
 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
 }
+
+.circleText
+{
+    background-color: #6D9DC5;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.circleLeft
+{
+    margin-right: auto;
+}
+
+.circleRight
+{
+    margin-left: auto;
+}
+
+.tutorialText
+{
+    background-color: #6D9DC5;
+    border-radius: 50px;
+    width: 30%;
+    height: 30%;
+    font-size: larger;
+}
+
+.tutorialText p
+{
+    margin: 3% 5%;
+}
+
+/* Footer */
 
 footer
 {
