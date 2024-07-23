@@ -21,10 +21,12 @@ header
     padding: 3% 1%;
 }
 
-header ul
+header li
 {
-    padding-left: 10px;
-    padding-right: 10px;
+    display: flex;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: space-evenly;
 }
 
 .button
@@ -42,13 +44,18 @@ header ul
     transform:scale(1.2);
 }
 
-main
+.indexMain
 {
     padding-top: 5%;
     padding-bottom: 6%;
     background-color: #3066BE;
     display: flex;
     justify-content: space-around;
+}
+
+.tutorialMain
+{
+    background-color: #3066BE;
 }
 
 main div

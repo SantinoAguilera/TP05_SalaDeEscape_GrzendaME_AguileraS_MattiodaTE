@@ -1,25 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Menu Principal";
 }
-<link rel="stylesheet" href="css/site.css">
 
 <header>
     <nav>
-        <ul>
+        <li>
             <a href='@Url.Action("Jugar", "Home")' class="button">Jugar</a>
             <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
-        </ul>
+        </li>
     </nav>
     <h1>Data Breach</h1>
     <nav>
-        <ul>
+        <li>
             <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
             <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
-        </ul>
+        </li>
     </nav>
 </header>
 
-<main>
+<main class="indexMain">
     <div class="imagesLeft">
         <img src="images/screenshots/archivo.ext">
         <img src="images/screenshots/archivo.ext">
