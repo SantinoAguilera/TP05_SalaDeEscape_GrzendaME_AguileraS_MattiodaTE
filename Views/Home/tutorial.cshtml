@@ -4,29 +4,37 @@
 
 <header>
     <nav>
-        <ul>
-            <a href='@Url.Action("Jugar", "Home")'>Jugar</a>
-            <a href='@Url.Action("Tutorial", "Home")'>Tutorial</a>
-        </ul>
+        <li>
+            <a href='@Url.Action("Jugar", "Home")' class="button">Jugar</a>
+            <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
+        </li>
     </nav>
     <h1>Data Breach</h1>
     <nav>
-        <ul>
-            <a href='@Url.Action("Index", "Home")'>Menu Principal</a>
-            <a href='@Url.Action("Creditos", "Home")'>Creditos</a>
-        </ul>
+        <li>
+            <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
+            <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
+        </li>
     </nav>
 </header>
 
-<main>
-    <h1>Tutorial</h1>
-    <p>¡Oh no! ¡Te has quedado encerrado en el CIDI! Ahora, te toca escapar de una escuela vacia, encontrando pistas y soluciones.</p>
-    <h2>Controles</h2>
-    <p>Haz click en las flechas que aparezcan en imagen para moverte.</p>
-    <!--Insertar imagen aquí de la flecha-->
-    <p>Clickea sobre objetos que parezcan ser relevantes para poder interactuar con ellos.</p>
-    <!--Insertar imagen aquí de un objeto relevante-->
-    <p>¡Escapa del CIDI y demuestra que sos un verdadero estudiante de Info!</p>
+<main class="tutorialMain">
+    <div>
+        <h1>Tutorial</h1>
+        <p>¡Oh no! ¡Te has quedado encerrado en el CIDI! Ahora, te toca escapar de una escuela vacia, encontrando pistas y soluciones.</p>
+    </div>
+    <div class="spaceAround">
+        <h2>Controles</h2>
+        <div class="spaceBetween">
+            <p>Haz click en las flechas que aparezcan en imagen para moverte.</p>
+            <img src="images/screenshots/archivo.ext">
+            <p>Clickea sobre objetos que parezcan ser relevantes para poder interactuar con ellos.</p>
+            <img src="images/screenshots/archivo.ext">
+        </div>
+    </div>
+    <div>
+        <p>¡Escapa del CIDI y demuestra que sos un verdadero estudiante de Info!</p>
+    </div>
 </main>
 
 <footer>
