@@ -187,6 +187,16 @@ main div
     margin: 3% 5%;
 }
 
+.game{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.game img{
+    height: 100vh;
+}
+
 /* Footer */
 
 footer

@@ -31,7 +31,7 @@ public class HomeController : Controller
     public IActionResult Comenzar()
     {
         int num = Escape.GetEstadoJuego();
-        return View("sala" + num);
+        return View("habitacion" + num);
     }
 
     public IActionResult Habitacion(int sala, string clave)
