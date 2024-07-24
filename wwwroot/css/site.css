@@ -74,6 +74,17 @@ header li
     font-size: 2.5em;
 }
 
+.creditosMain
+{
+    padding-top: 5%;
+    padding-bottom: 6%;
+    width: 10   0%;
+    background-color: #3066BE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 main div
 {
     display: flex;
