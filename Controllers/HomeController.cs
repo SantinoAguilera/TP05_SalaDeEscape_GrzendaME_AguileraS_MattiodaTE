@@ -28,6 +28,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Victoria()
+    {
+        return View();
+    }
+
     public IActionResult Comenzar()
     {
         int num = Escape.GetEstadoJuego();
