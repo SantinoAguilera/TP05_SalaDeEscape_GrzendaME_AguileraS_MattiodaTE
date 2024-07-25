@@ -74,23 +74,15 @@ header li
     font-size: 2.5em;
 }
 
-.content
+.creditosMain
 {
-    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 6%;
+    width: 10   0%;
+    background-color: #3066BE;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0;
-}
-
-.tutorialCenter
-{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    margin: 20px 0;
 }
 
 main div
@@ -111,6 +103,27 @@ main div
 {
     height: 100px;
     width: 300px;
+}
+
+/* Text and Positioning Styles */
+
+.content
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.tutorialCenter
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
 }
 
 .titleCenter
@@ -180,6 +193,28 @@ main div
     width: 30%;
     height: 30%;
     font-size: larger;
+}
+
+.miniTutorialText
+{
+    background-color: #6D9DC5;
+    border-radius: 50px;
+    width: 30%;
+    height: 30%;
+    padding: 0.5%;
+    font-size: large;
+}
+
+.miniTutorialTextRed
+{
+    background-color: red;
+    border-radius: 10px;
+    width: 25%;
+    height: 20%;
+    font-size: large;
+    color: white;
+    padding: 0.2%;
+    margin: 2%;
 }
 
 .tutorialText p
