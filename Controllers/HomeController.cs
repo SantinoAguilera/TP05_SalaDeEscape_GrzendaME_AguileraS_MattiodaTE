@@ -35,18 +35,13 @@ public class HomeController : Controller
 
     public IActionResult Comenzar()
     {
-        int num = Escape.GetEstadoJuego();
-        return View("habitacion" + num);
+        Escape.InicializarJuego();
+        return View("habitaciones/habitacion1/habitacion11");
     }
 
-    public IActionResult Habitacion(int sala, string clave)
+    public IActionResult Habitacion(int sala)
     {
-        int num = Escape.GetEstadoJuego();
-        if (sala == num)
-        {
-
-        }
-        return View();
+        return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala); //Va a la sala indicada por el parámetro
     }
 
     public IActionResult Privacy()

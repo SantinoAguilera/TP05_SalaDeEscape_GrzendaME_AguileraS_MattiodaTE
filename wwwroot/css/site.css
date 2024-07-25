@@ -7,7 +7,7 @@
 
 body
 {
-    background-color: #6D9DC5;
+    background-color: black;
 }
 
 /* Header */
@@ -300,14 +300,168 @@ main div
     margin: 3% 5%;
 }
 
+/* Juego */
+
 .game{
+    position: relative;
     display: flex;
     justify-content: center;
-    background-color: black;
 }
 
-.game img{
+.mainimg{
+    position: absolute;
     height: 100vh;
+    z-index: -1;
+}
+
+/* Flechas */
+
+.arrow{
+    position: relative;
+    background-image: url('/images/arrows/default.png');
+    background-size: cover;
+    height: 17vh;
+    width: 6vw;
+}
+
+.arrow:hover{
+    background-image: url('/images/arrows/hover.png');
+}
+
+.hitbox{
+    position: relative;
+    background-color: white;
+    height: 1vh;
+    width: 1vw;
+}
+
+.hitbox1112{
+    height: 13vh;
+    width: 10vw;
+    top: 39vh;
+    left: 19vw;
+}
+
+.arrow1121{
+    top: 80vh;
+    left: 5vw;
+}
+.arrow1211{
+    top: 0.5vh;
+    left: 1vw;
+    rotate: 90deg;
+}
+
+.hitbox1213{
+    height: 5vh;
+    width: 63vw;
+    top: 95vh;
+    right: 1vw;
+}
+
+.hitbox2122{
+    height: 8vh;
+    width: 7.5vw;
+    top: 40vh;
+    right: 33.3vw;
+}
+
+.hitbox4243{
+    height: 43vh;
+    width: 40vw;
+    top: 32vh;
+    left: 11.5vw;
+}
+
+.hitbox5152{
+    height: 21vh;
+    width: 15vw;
+    top: 76vh;
+    right: 28vw;
+}
+
+.arrow1312{
+    top: 0.5vh;
+    right: 30.5vw;
+    rotate: 90deg;
+}
+
+.arrow2111{
+    top: 80vh;
+    left: 2.853vw;
+}
+
+.arrow2141{
+    top: 76vh;
+    left: 38vw;
+    rotate: -40deg;
+}
+
+.arrow2131{
+    height: 6vh;
+    width: 2.1vw;
+    top: 32vh;
+    left: 4vw;
+    rotate: -90deg;
+}
+
+.arrow2161{
+    height: 6vh;
+    width: 2.1vw;
+    top: 32vh;
+    right: 13vw;
+    rotate: 90deg;
+}
+
+.arrow2221{
+    right: 30vw;
+    rotate: 90deg;
+}
+
+.arrow3121{
+    top: 80vh;
+    left: 2.47vw;
+}
+
+.arrow3151{
+    height: 14vh;
+    width: 4.95vw;
+    top: 73vh;
+    left: 21vw;
+    rotate: 180deg;
+}
+
+.arrow4121{
+    top: 80vh;
+}
+
+.arrow4142{
+    height: 14vh;
+    width: 4.95vw;
+    top: 62vh;
+    left: 12vw;
+    rotate: 173deg;
+}
+
+.arrow4241{
+    top: 40vh;
+    left: 3vw;
+    rotate: 192deg;
+}
+
+.arrow4342{
+    right: 30vw;
+    rotate: 90deg;
+}
+
+.arrow5131{
+    top: 80vh;
+    left: 7.5vw;
+}
+
+.arrow5251{
+    right: 30vw;
+    rotate: 90deg;
 }
 
 /* Footer */
