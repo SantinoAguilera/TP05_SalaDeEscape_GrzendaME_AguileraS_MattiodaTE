@@ -250,42 +250,102 @@ main div
     background-image: url('/images/arrows/hover.png');
 }
 
-.arrow12{
+.hitbox{
+    position: relative;
+    background-color: white;
+    height: 1vh;
+    width: 1vw;
+}
+
+.hitbox1112{
+    height: 13vh;
+    width: 10vw;
+    top: 39vh;
+    left: 19vw;
+}
+
+.arrow1121{
     top: 80vh;
+    left: 5vw;
 }
-
-.arrow21{
-    top: 80vh;
-    right: 0.91vw;
-}
-
-.arrow24{
-    top: 76vh;
-    left: 33vw;
-    rotate: -40deg;
-}
-
-.arrow23{
-    height: 6vh;
-    width: 2.1vw;
-    top: 32vh;
-    rotate: -90deg;
-}
-
-.arrow26{
-    height: 6vh;
-    width: 2.1vw;
-    top: 32vh;
-    right: 9vw;
+.arrow1211{
+    top: 0.5vh;
+    left: 1vw;
     rotate: 90deg;
 }
 
-.arrow32{
+.hitbox1213{
+    height: 5vh;
+    width: 63vw;
+    top: 95vh;
+    right: 1vw;
+}
+
+.hitbox2122{
+    height: 8vh;
+    width: 7.5vw;
+    top: 40vh;
+    right: 33.3vw;
+}
+
+.hitbox4243{
+    height: 43vh;
+    width: 40vw;
+    top: 32vh;
+    left: 11.5vw;
+}
+
+.hitbox5152{
+    height: 21vh;
+    width: 15vw;
+    top: 76vh;
+    right: 28vw;
+}
+
+.arrow1312{
+    top: 0.5vh;
+    right: 30.5vw;
+    rotate: 90deg;
+}
+
+.arrow2111{
+    top: 80vh;
+    left: 2.853vw;
+}
+
+.arrow2141{
+    top: 76vh;
+    left: 38vw;
+    rotate: -40deg;
+}
+
+.arrow2131{
+    height: 6vh;
+    width: 2.1vw;
+    top: 32vh;
+    left: 4vw;
+    rotate: -90deg;
+}
+
+.arrow2161{
+    height: 6vh;
+    width: 2.1vw;
+    top: 32vh;
+    right: 13vw;
+    rotate: 90deg;
+}
+
+.arrow2221{
+    right: 30vw;
+    rotate: 90deg;
+}
+
+.arrow3121{
     top: 80vh;
     left: 2.47vw;
 }
 
-.arrow35{
+.arrow3151{
     height: 14vh;
     width: 4.95vw;
     top: 73vh;
@@ -293,12 +353,37 @@ main div
     rotate: 180deg;
 }
 
-.arrow42{
+.arrow4121{
     top: 80vh;
 }
 
-.arrow53{
+.arrow4142{
+    height: 14vh;
+    width: 4.95vw;
+    top: 62vh;
+    left: 12vw;
+    rotate: 173deg;
+}
+
+.arrow4241{
+    top: 40vh;
+    left: 3vw;
+    rotate: 192deg;
+}
+
+.arrow4342{
+    right: 30vw;
+    rotate: 90deg;
+}
+
+.arrow5131{
     top: 80vh;
+    left: 7.5vw;
+}
+
+.arrow5251{
+    right: 30vw;
+    rotate: 90deg;
 }
 
 /* Footer */

@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "habitacion11";
+}
+
+<main class="game">
+    <img src="/images/rooms/sala111.jpg" class="mainimg">
+
+    <!--FLECHAS DE CAMBIO DE HABITACION-->
+    <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow1121"></a> <!--arrow12 = flecha desde la habitacion 1, posicion 1 a la habitacion 2, posicion 1-->
+
+    <!--DE CAMBIO DE POSICION-->
+    <a href='@Url.Action("Habitacion", "Home", new{sala=12})' class="hitbox hitbox1112"></a>
+</main>

@@ -31,12 +31,12 @@ public class HomeController : Controller
     public IActionResult Comenzar()
     {
         Escape.InicializarJuego();
-        return View("habitacion1");
+        return View("habitaciones/habitacion1/habitacion11");
     }
 
     public IActionResult Habitacion(int sala)
     {
-        return View("habitacion" + sala); //Va a la sala indicada por el parámetro
+        return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala); //Va a la sala indicada por el parámetro
     }
 
     public IActionResult Privacy()
