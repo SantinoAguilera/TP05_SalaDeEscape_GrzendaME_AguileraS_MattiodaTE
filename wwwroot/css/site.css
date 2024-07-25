@@ -7,7 +7,7 @@
 
 body
 {
-    background-color: #6D9DC5;
+    background-color: black;
 }
 
 /* Header */
@@ -187,14 +187,83 @@ main div
     margin: 3% 5%;
 }
 
+/* Juego */
+
 .game{
+    position: relative;
     display: flex;
     justify-content: center;
-    background-color: black;
 }
 
-.game img{
+.mainimg{
+    position: absolute;
     height: 100vh;
+    z-index: -1;
+}
+
+/* Flechas */
+
+.arrow{
+    position: relative;
+    background-image: url('/images/arrows/default.png');
+    background-size: cover;
+    height: 17vh;
+    width: 6vw;
+}
+
+.arrow:hover{
+    background-image: url('/images/arrows/hover.png');
+}
+
+.arrow12{
+    top: 80vh;
+}
+
+.arrow21{
+    top: 80vh;
+    right: 0.91vw;
+}
+
+.arrow24{
+    top: 76vh;
+    left: 33vw;
+    rotate: -40deg;
+}
+
+.arrow23{
+    height: 6vh;
+    width: 2.1vw;
+    top: 32vh;
+    rotate: -90deg;
+}
+
+.arrow26{
+    height: 6vh;
+    width: 2.1vw;
+    top: 32vh;
+    right: 9vw;
+    rotate: 90deg;
+}
+
+.arrow32{
+    top: 80vh;
+    left: 2.47vw;
+}
+
+.arrow35{
+    height: 14vh;
+    width: 4.95vw;
+    top: 73vh;
+    left: 21vw;
+    rotate: 180deg;
+}
+
+.arrow42{
+    top: 80vh;
+}
+
+.arrow53{
+    top: 80vh;
 }
 
 /* Footer */

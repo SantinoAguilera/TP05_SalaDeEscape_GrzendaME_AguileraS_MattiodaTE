@@ -3,5 +3,12 @@
 }
 
 <main class="game">
-    <img src="/images/rooms/sala111.jpg">
+    <img src="/images/rooms/sala211.jpg" class="mainimg">
+
+    <!--FLECHAS DE CAMBIO DE HABITACION-->
+    <a href='@Url.Action("Habitacion", "Home", new{sala=4})' class="arrow arrow24"></a>
+    <a href='@Url.Action("Habitacion", "Home", new{sala=1})' class="arrow arrow21"></a>
+    <a href='@Url.Action("Habitacion", "Home", new{sala=3})' class="arrow arrow23"></a>
+
+    <a href='@Url.Action("Habitacion", "Home")' class="arrow arrow26"></a> <!--6 = escapar--> <!--TO DO-->
 </main>

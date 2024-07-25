@@ -8,7 +8,7 @@ static class Escape
     public static int posSalaID = 1;
 
     //Metodos
-    private static void InicializarJuego()
+    public static void InicializarJuego()
     {
         estadoJuego = 1;
         salaID = 1;
