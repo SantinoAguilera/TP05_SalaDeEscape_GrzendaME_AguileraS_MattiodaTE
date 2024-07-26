@@ -356,6 +356,10 @@ main div
     border: 0px;
 }
 
+.text:focus{
+    outline: none;
+}
+
 .hitbox{
     position: relative;
     background-color: white;
@@ -500,9 +504,10 @@ main div
 /* Text inputs */
 
 .text12{
-    height: 1vh;
+    height: 1.3vh;
+    width: 8vw;
     top: 38.8vh;
-    right: 35vw;
+    right: 34.9vw;
 }
 
 /* Footer */

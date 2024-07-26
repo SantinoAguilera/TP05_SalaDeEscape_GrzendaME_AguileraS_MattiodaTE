@@ -46,7 +46,7 @@ public class HomeController : Controller
         return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala); //Va a la sala indicada por el parámetro
     }
 
-    public IActionResult Resolver(string contrasena, int sala)
+    public IActionResult Resolver(int sala, string contrasena)
     {
         if (Escape.ResolverSala(contrasena)) Escape.AvanzarEstado();
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
