@@ -380,7 +380,7 @@ main div
     height: 5vh;
     width: 63vw;
     top: 95vh;
-    right: 1vw;
+    left: 3vw;
 }
 
 .hitbox2122{
@@ -413,7 +413,7 @@ main div
 
 .arrow1211{
     top: 0.5vh;
-    left: 1vw;
+    left: 5vw;
     rotate: 90deg;
 }
 

@@ -42,6 +42,7 @@ static class Escape
         sala /= 10;
 
         //Acá es donde tengo que poner if (estadoJuego == sth) estadoSalaID[sth]++
+        if (estadoJuego == 2) estadoSalaID[0] = 2;
         return estadoSalaID[sala - 1];
     }
 }
