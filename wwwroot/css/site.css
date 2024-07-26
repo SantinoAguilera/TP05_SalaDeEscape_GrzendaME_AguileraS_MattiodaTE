@@ -373,7 +373,15 @@ main div
     height: 13vh;
     width: 10vw;
     top: 39vh;
-    left: 19vw;
+    left: 21.8vw;
+}
+
+.hitboxVerde
+{
+    height: 0.7vh;
+    width: 3.9vw;
+    top: 95.56vh;
+    right: 36.2vw;
 }
 
 .hitbox1213{
@@ -390,6 +398,22 @@ main div
     right: 33.3vw;
 }
 
+.hitboxAzul
+{
+    height: 1.5vh;
+    width: 3.8vw;
+    top: 60.8vh;
+    left: 32.6vw;
+}
+
+.hitboxAmarillo
+{
+    height: 0.4vh;
+    width: 1.1vw;
+    top: 11.3vh;
+    right: 12.6vw;
+}
+
 .hitbox4243{
     height: 43vh;
     width: 40vw;
@@ -398,10 +422,28 @@ main div
 }
 
 .hitbox5152{
-    height: 21vh;
-    width: 15vw;
-    top: 76vh;
-    right: 28vw;
+    height: 23vh;
+    width: 16vw;
+    top: 75vh;
+    right: 28.2vw;
+    z-index: -1;
+}
+
+.hitboxRojo1
+{
+    height: 2.2vh;
+    width: 9vw;
+    top: 52.7vh;
+    right: 25.2vw;
+    z-index: 1;
+}
+
+.hitboxRojo2
+{
+    height: 3vh;
+    width: 13.3vw;
+    top: 30.6vh;
+    right: 11.7vw;
 }
 
 /* Flechas */
