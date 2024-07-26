@@ -1,11 +1,12 @@
 @{
     ViewData["Title"] = "habitacion42";
 }
+<body class="bodyGame">
+    <main class="game">
+        <img src="/images/rooms/sala421.jpg" class="mainimg">
 
-<main class="game">
-    <img src="/images/rooms/sala421.jpg" class="mainimg">
-
-    <!--CAMBIO DE POSICION-->
-    <a href='@Url.Action("Habitacion", "Home", new{sala=41})' class="arrow arrow4241"></a>
-    <a href='@Url.Action("Habitacion", "Home", new{sala=43})' class="hitbox hitbox4243"></a>
-</main>
+        <!--CAMBIO DE POSICION-->
+        <a href='@Url.Action("Habitacion", "Home", new{sala=41})' class="arrow arrow4241"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=43})' class="hitbox hitbox4243"></a>
+    </main>
+</body>

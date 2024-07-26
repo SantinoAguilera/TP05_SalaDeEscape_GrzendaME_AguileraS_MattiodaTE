@@ -1,18 +1,19 @@
 @{
     ViewData["Title"] = "habitacion12";
 }
+<body class="bodyGame">
+    <main class="game">
+        <img src="/images/rooms/sala121.jpg" class="mainimg">
 
-<main class="game">
-    <img src="/images/rooms/sala121.jpg" class="mainimg">
-
-    <!--CAMBIO DE POSICION-->
-    <a href='@Url.Action("Habitacion", "Home", new{sala=11})' class="arrow arrow1211"></a>
-    <a href='@Url.Action("Habitacion", "Home", new{sala=13})' class="hitbox hitbox1213"></a>
-    
-    <!--CONTRASEÑA-->
-    <form action='@Url.Action("Resolver", "Home")' class="text12">
-        <input type="hidden" name="sala" value="12">
-        <input type="password" name="contrasena" required class="text text12">
-        <input type="submit" hidden value="contrasena">
-    </form>
-</main>
+        <!--CAMBIO DE POSICION-->
+        <a href='@Url.Action("Habitacion", "Home", new{sala=11})' class="arrow arrow1211"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=13})' class="hitbox hitbox1213"></a>
+        
+        <!--CONTRASEÑA-->
+        <form action='@Url.Action("Resolver", "Home")' class="text12">
+            <input type="hidden" name="sala" value="12">
+            <input type="password" name="contrasena" required class="text text12">
+            <input type="submit" hidden value="contrasena">
+        </form>
+    </main>
+</body>
