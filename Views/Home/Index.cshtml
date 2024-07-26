@@ -1,41 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Menu Principal";
 }
+<body class="bodyHome">
+    <header>
+        <nav>
+            <li>
+                <a href='@Url.Action("Comenzar", "Home")' class="button">Comenzar</a>
+                <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
+            </li>
+        </nav>
+        <h1>Data Breach</h1>
+        <nav>
+            <li>
+                <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
+                <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
+            </li>
+        </nav>
+    </header>
 
-<header>
-    <nav>
-        <li>
+    <main class="mainHome indexMain">
+        <div class="imagesLeft">
+            <img src="images/screenshots/archivo.ext">
+            <img src="images/screenshots/archivo.ext">
+        </div>
+        <div class="titleCenter">
+            <h1>DATA BREACH</h1>
+            <h2>Lo que pasa cuando no te despiertan</h2>
             <a href='@Url.Action("Comenzar", "Home")' class="button">Comenzar</a>
             <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
-        </li>
-    </nav>
-    <h1>Data Breach</h1>
-    <nav>
-        <li>
-            <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
-            <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
-        </li>
-    </nav>
-</header>
+            <a href='@Url.Action("Victoria", "Home")' class="button">Creditos</a>
+        </div>
+        <div class="imagesRight">
+            <img src="images/screenshots/archivo.ext">
+            <img src="images/screenshots/archivo.ext">
+        </div>
+    </main>
 
-<main class="indexMain">
-    <div class="imagesLeft">
-        <img src="images/screenshots/archivo.ext">
-        <img src="images/screenshots/archivo.ext">
-    </div>
-    <div class="titleCenter">
-        <h1>DATA BREACH</h1>
-        <h2>Lo que pasa cuando no te despiertan</h2>
-        <a href='@Url.Action("Comenzar", "Home")' class="button">Comenzar</a>
-        <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
-        <a href='@Url.Action("Victoria", "Home")' class="button">Creditos</a>
-    </div>
-    <div class="imagesRight">
-        <img src="images/screenshots/archivo.ext">
-        <img src="images/screenshots/archivo.ext">
-    </div>
-</main>
-
-<footer>
-    <p>Inserte Copyright aquí © 2024-2024</p>
-</footer>
+    <footer>
+        <p>Inserte Copyright aquí © 2024-2024</p>
+    </footer>
+</body>

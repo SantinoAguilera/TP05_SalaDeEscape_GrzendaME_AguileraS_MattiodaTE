@@ -1,53 +1,54 @@
 @{
     ViewData["Title"] = "Creditos";
 }
+<body class="bodyHome">
+    <header>
+        <nav>
+            <li>
+                <a href='@Url.Action("Comenzar", "Home")' class="button">Comenzar</a>
+                <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
+            </li>
+        </nav>
+        <h1>Data Breach</h1>
+        <nav>
+            <li>
+                <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
+                <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
+            </li>
+        </nav>
+    </header>
 
-<header>
-    <nav>
-        <li>
-            <a href='@Url.Action("Comenzar", "Home")' class="button">Comenzar</a>
-            <a href='@Url.Action("Tutorial", "Home")' class="button">Tutorial</a>
-        </li>
-    </nav>
-    <h1>Data Breach</h1>
-    <nav>
-        <li>
-            <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
-            <a href='@Url.Action("Creditos", "Home")' class="button">Creditos</a>
-        </li>
-    </nav>
-</header>
-
-<main class="creditosMain">
-    <h1 class="title">CREDITOS</h1>
-    <section class="content">
-        <h2 class="creditosHeader2">El Equipo</h2>
-            <!--Insertar imagen grupal de los 3 aquí-->
-        <div class="creditosCenter">
-            <div>
-                <!--Insertar imagen de Mati aquí-->
-                <h3 class="creditosText">Mati Ezequiel Grzenda</h3>
-                <p class="creditosText">Main Developer</p>
-                <p class="creditosText">Fotografo</p>
-                <p class="creditosText">UI Designer</p>
+    <main class="mainHome creditosMain">
+        <h1 class="title">CREDITOS</h1>
+        <section class="content">
+            <h2 class="creditosHeader2">El Equipo</h2>
+                <!--Insertar imagen grupal de los 3 aquí-->
+            <div class="creditosCenter">
+                <div>
+                    <!--Insertar imagen de Mati aquí-->
+                    <h3 class="creditosText">Mati Ezequiel Grzenda</h3>
+                    <p class="creditosText">Main Developer</p>
+                    <p class="creditosText">Fotografo</p>
+                    <p class="creditosText">UI Designer</p>
+                </div>
+                <div>
+                    <!--Insertar imagen de Santino aquí-->
+                    <h3 class="creditosText">Santino Aguilera</h3>
+                    <p class="creditosText">Web Developer</p>   
+                    <p class="creditosText">Developer</p>
+                    <p class="creditosText">UI Designer</p>
+                </div>
+                <div>
+                    <!--Insertar imagen de Tiziana aquí-->
+                    <h3 class="creditosText">Tiziana Emma Mattioda</h3>
+                    <p class="creditosText">Idea Principal</p>
+                    <p class="creditosText">Developer</p>
+                    <p class="creditosText">Designer</p>
+                </div>
             </div>
-            <div>
-                <!--Insertar imagen de Santino aquí-->
-                <h3 class="creditosText">Santino Aguilera</h3>
-                <p class="creditosText">Web Developer</p>   
-                <p class="creditosText">Developer</p>
-                <p class="creditosText">UI Designer</p>
-            </div>
-            <div>
-                <!--Insertar imagen de Tiziana aquí-->
-                <h3 class="creditosText">Tiziana Emma Mattioda</h3>
-                <p class="creditosText">Idea Principal</p>
-                <p class="creditosText">Developer</p>
-                <p class="creditosText">Designer</p>
-            </div>
-        </div>
-    </section>
-</main>
-<footer>
-    <p>Inserte Copyright aquí © 2024-2024</p>
-</footer>
+        </section>
+    </main>
+    <footer>
+        <p>Inserte Copyright aquí © 2024-2024</p>
+    </footer>
+</body>
