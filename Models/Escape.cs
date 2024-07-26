@@ -1,7 +1,7 @@
 static class Escape
 {
     //Atributos
-    public static string[] incognitasSalas {get; private set;}
+    public static string[] incognitasSalas {get; private set;} = null!;
     public static int estadoJuego = 1;
     public static int contrasenaActual = 0;
     public static int[] estadoSalaID = new int[5];
@@ -17,7 +17,7 @@ static class Escape
             estadoSalaID[i] = 1;
             posSalaID[i] = 1;
         }
-        string[] incognitasSalas = {"vivainfo", "462", "select contraseña from aulas where aula = 'ami';", "173", "025358"}; //0 - 25 - 3 - 58
+        incognitasSalas = ["vivainfo", "462", "select contraseña from aulas where aula = 'ami';", "173", "025358"]; //0 - 25 - 3 - 58
     }
     public static int GetEstadoJuego()
     {
@@ -29,7 +29,7 @@ static class Escape
     }
     public static bool ResolverSala(string incognita)
     {
-        int estadoJuego = GetEstadoJuego();
+        estadoJuego = GetEstadoJuego();
         if (incognita == incognitasSalas[contrasenaActual])
         {
             contrasenaActual++;
