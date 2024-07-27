@@ -351,7 +351,7 @@ main div
 
 .text{
     position: relative;
-    background: transparent;
+    background: black;
     color: white;
     border: 0px;
 }
@@ -543,6 +543,11 @@ main div
     rotate: 90deg;
 }
 
+.arrowContrasena{
+    rotate: 90deg;
+    right: 9.3vw;
+}
+
 /* Text inputs */
 
 .text12{
@@ -550,6 +555,31 @@ main div
     width: 8vw;
     top: 38.84vh;
     right: 35.15vw;
+}
+
+.textContrasena{
+    position: relative;
+    height: 4vh;
+    width: 24vw;
+    top: 48vh;
+    right: 11.5vw;
+    padding-left: 0.8vw;
+    border: 0.2vh solid black;
+    border-radius: 4vw;
+    font-size: 2vh;
+}
+
+/* Contraseña */
+.darkened{
+    filter: brightness(40%);
+}
+
+.pContrasena{
+    position: relative;
+    font-size: 2vh;
+    color: white;
+    top: 43vh;
+    left: 9.5vw;
 }
 
 /* Footer */

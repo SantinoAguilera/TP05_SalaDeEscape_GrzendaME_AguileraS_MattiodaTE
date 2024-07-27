@@ -40,17 +40,47 @@ public class HomeController : Controller
         return View("habitaciones/habitacion1/habitacion11");
     }
 
-    public IActionResult Habitacion(int sala)
+    public IActionResult Habitacion(int sala, int salaAnterior = 0, int estadoMin = 0, int contrasenaAceptada = -1)
     {
-        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
-        return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala); //Va a la sala indicada por el parámetro
+        string url;
+        if (Escape.GetEstadoJuego() >= estadoMin)
+        {
+            ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+            url = "habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala;
+        }
+        else
+        {
+            ViewBag.estadoSalaID = Escape.RevisarEstadoSala(salaAnterior);
+            ViewBag.salaID = sala;
+            ViewBag.salaAnteriorID = salaAnterior;
+            ViewBag.contrasenaAceptada = contrasenaAceptada;
+            url = "contrasena";
+        }
+        return View("habitaciones/" + url);
     }
 
     public IActionResult Resolver(int sala, string contrasena)
     {
-        if (Escape.ResolverSala(contrasena)) Escape.AvanzarEstado();
+        if (Escape.ResolverSala(contrasena, -1)) Escape.AvanzarEstado();
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
-        return View("habitaciones/habitacion1/habitacion12");
+        return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala);
+    }
+
+    public IActionResult ResolverSala(int sala, int salaAnterior, int contrasenaAceptada, string contrasena)
+    {
+        string url;
+        if (Escape.ResolverSala(contrasena, contrasenaAceptada))
+        {
+            Escape.AvanzarEstado();
+            ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+            url = sala.ToString().Substring(0, 1) + "/habitacion" + sala;
+        }
+        else
+        {
+            ViewBag.estadoSalaID = Escape.RevisarEstadoSala(salaAnterior);
+            url = salaAnterior.ToString().Substring(0, 1) + "/habitacion" + salaAnterior;
+        }
+        return View("habitaciones/habitacion" + url);
     }
 
     public IActionResult Privacy()

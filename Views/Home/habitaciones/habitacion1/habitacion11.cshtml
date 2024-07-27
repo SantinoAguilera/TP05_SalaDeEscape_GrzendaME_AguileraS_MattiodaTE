@@ -9,7 +9,7 @@
         <img src="@url" class="mainimg">
 
         <!-- FLECHAS DE CAMBIO DE HABITACION -->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow1121"></a> <!--arrow12 = flecha desde la habitacion 1, posicion 1 a la habitacion 2, posicion 1-->
+        <a href='@Url.Action("Habitacion", "Home", new{sala=21, salaAnterior=11, estadoMin=3, contrasenaAceptada=1})' class="arrow arrow1121"></a> <!--arrow12 = flecha desde la habitacion 1, posicion 1 a la habitacion 2, posicion 1-->
 
         <!-- DE CAMBIO DE POSICION -->
         <a href='@Url.Action("Habitacion", "Home", new{sala=12})' class="hitbox hitbox1112"></a>

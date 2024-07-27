@@ -4,9 +4,7 @@
 <body class="bodyGame">
     <main class="game">
         @{
-            int estadoSalaID = ViewBag.estadoSalaID;
-            if (estadoSalaID > 2) estadoSalaID = 2;
-            string url = "/images/rooms/sala12" + estadoSalaID + ".jpg";
+            string url = "/images/rooms/sala12" + ViewBag.estadoSalaID + ".jpg";
         }
         <img src="@url" class="mainimg">
 
@@ -15,7 +13,7 @@
         <a href='@Url.Action("Habitacion", "Home", new{sala=13})' class="hitbox hitbox1213"></a>
         
         <!--CONTRASEÑA-->
-        <form action='@Url.Action("Resolver", "Home")' class="text12">
+        <form action='@Url.Action("Resolver", "Home")' autocomplete="off">
             <input type="hidden" name="sala" value="12">
             <input type="password" name="contrasena" required class="text text12">
             <input type="submit" hidden>
