@@ -6,9 +6,23 @@
         <img src="/images/rooms/sala521.jpg" class="mainimg">
 
         <!--CAMBIO DE POSICION-->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=51})' class="arrow arrow5251"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=51})' class="arrow arrow5251" tabindex="-1"></a>
+
+        <!-- HITBOX DE LOS BOTONES -->
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=1})' class="hitbox hitboxCaja1 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=2})' class="hitbox hitboxCaja2 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=3})' class="hitbox hitboxCaja3 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=4})' class="hitbox hitboxCaja4 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=5})' class="hitbox hitboxCaja5 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=6})' class="hitbox hitboxCaja6 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=7})' class="hitbox hitboxCaja7 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=8})' class="hitbox hitboxCaja8 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=9})' class="hitbox hitboxCaja9 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesEnter", "Home")' class="hitbox hitboxCajaEnter botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesCaja", "Home", new{num=0})' class="hitbox hitboxCaja0 botonCaja" tabindex="-1"></a>
+        <a href='@Url.Action("BotonesBackspace", "Home")' class="hitbox hitboxCajaBackspace botonCaja" tabindex="-1"></a>
 
         <!-- HITBOX DEL MARCADOR ROJO -->
-        <a href='@Url.Action("Marcador", "Home", new{marcador="rojo"})' class="hitbox hitboxRojo2"></a>
+        <a href='@Url.Action("Marcador", "Home", new{marcador="rojo"})' class="hitbox hitboxRojo2" tabindex="-1"></a>
     </main>
 </body>

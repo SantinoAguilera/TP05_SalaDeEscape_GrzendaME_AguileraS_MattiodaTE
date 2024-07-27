@@ -421,7 +421,34 @@ main div
     left: 11.5vw;
 }
 
-.hitbox5152{
+.botonStanca
+{
+    height: 2.5vh;
+}
+
+.hitboxStanca1
+{
+    width: 6.4vw;
+    top: 27.7vh;
+    right: 12.5vw;
+}
+
+.hitboxStanca2
+{
+    width: 6.9vw;
+    top: 31.7vh;
+    right: 18.8vw;
+}
+
+.hitboxStanca3
+{
+    width: 8.4vw;
+    top: 35.5vh;
+    right: 25.6vw;
+}
+
+.hitbox5152
+{
     height: 23vh;
     width: 16vw;
     top: 75vh;
@@ -438,12 +465,90 @@ main div
     z-index: 1;
 }
 
+.botonCaja
+{
+    height: 1.5vh;
+    width: 1.5vw;
+}
+
+.hitboxCaja1
+{
+    top: 49.2vh;
+    left: 1.5vw;
+}
+
+.hitboxCaja2
+{
+    top: 49.2vh;
+    left: 1.9vw;
+}
+
+.hitboxCaja3
+{
+    top: 49.2vh;
+    left: 2.3vw;
+}
+
+.hitboxCaja4
+{
+    top: 51.3vh;
+    right: 3vw;
+}
+
+.hitboxCaja5
+{
+    top: 51.3vh;
+    right: 2.6vw;
+}
+
+.hitboxCaja6
+{
+    top: 51.3vh;
+    right: 2.2vw;
+}
+
+.hitboxCaja7
+{
+    top: 53.4vh;
+    right: 7.5vw;
+}
+
+.hitboxCaja8
+{
+    top: 53.4vh;
+    right: 7.1vw;
+}
+
+.hitboxCaja9
+{
+    top: 53.4vh;
+    right: 6.7vw;
+}
+
+.hitboxCajaEnter
+{
+    top: 55.7vh;
+    right: 12vw;
+}
+
+.hitboxCaja0
+{
+    top: 55.7vh;
+    right: 11.6vw;
+}
+
+.hitboxCajaBackspace
+{
+    top: 55.7vh;
+    right: 11.2vw;
+}
+
 .hitboxRojo2
 {
     height: 3vh;
     width: 13.3vw;
     top: 30.6vh;
-    right: 11.7vw;
+    right: 20.7vw;
 }
 
 /* Flechas */

@@ -6,12 +6,12 @@
         <img src="/images/rooms/sala111.jpg" class="mainimg">
 
         <!-- FLECHAS DE CAMBIO DE HABITACION -->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow1121"></a> <!--arrow12 = flecha desde la habitacion 1, posicion 1 a la habitacion 2, posicion 1-->
+        <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow1121" tabindex="-1"></a> <!--arrow12 = flecha desde la habitacion 1, posicion 1 a la habitacion 2, posicion 1-->
 
         <!-- DE CAMBIO DE POSICION -->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=12})' class="hitbox hitbox1112"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=12})' class="hitbox hitbox1112" tabindex="-1"></a>
 
         <!-- HITBOX DEL MARCADOR VERDE -->
-        <a href='@Url.Action("Marcador", "Home", new{marcador="verde"})' class="hitbox hitboxVerde"></a>
+        <a href='@Url.Action("Marcador", "Home", new{marcador="verde"})' class="hitbox hitboxVerde" tabindex="-1"></a>
     </main>
 </body>

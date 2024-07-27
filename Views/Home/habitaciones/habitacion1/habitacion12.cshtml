@@ -6,14 +6,14 @@
         <img src="/images/rooms/sala121.jpg" class="mainimg">
 
         <!--CAMBIO DE POSICION-->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=11})' class="arrow arrow1211"></a>
-        <a href='@Url.Action("Habitacion", "Home", new{sala=13})' class="hitbox hitbox1213"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=11})' class="arrow arrow1211" tabindex="-1"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=13})' class="hitbox hitbox1213" tabindex="-1"></a>
         
         <!--CONTRASEÑA-->
-        <form action='@Url.Action("Resolver", "Home")' class="text12">
-            <input type="hidden" name="sala" value="12">
-            <input type="password" name="contrasena" required class="text text12">
-            <input type="submit" hidden>
+        <form action='@Url.Action("Resolver", "Home")' class="text12" tabindex="-1">
+            <input type="hidden" name="sala" value="12" tabindex="-1">
+            <input type="password" name="contrasena" required class="text text12" tabindex="-1">
+            <input type="submit" hidden tabindex="-1">
         </form>
     </main>
 </body>
