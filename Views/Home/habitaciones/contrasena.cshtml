@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "contrasena";
+}
+<body class="bodyGame">
+    <main class="game">
+        @{
+            string url = "/images/rooms/sala" + ViewBag.salaAnteriorID + ViewBag.estadoSalaID + ".jpg";
+        }
+        <img src="@url" class="mainimg darkened">
+
+        <!--FLECHA PARA VOLVER HACIA ATRAS-->
+        <a href='@Url.Action("Habitacion", "Home", new{sala=ViewBag.salaAnteriorID})' class="arrow arrowContrasena"></a>
+
+        <!--CONTRASEÑA-->
+        <p class="pContrasena">Ingrese la contraseña de la puerta:</p>
+        <form action='@Url.Action("ResolverSala", "Home")' autocomplete="off">
+            <input type="hidden" name="sala" value="@ViewBag.salaID">
+            <input type="hidden" name="salaAnterior" value="@ViewBag.salaAnteriorID">
+            <input type="hidden" name="contrasenaAceptada" value="@ViewBag.contrasenaAceptada">
+            <input type="text" name="contrasena" required class="textContrasena">
+            <input type="submit" hidden>
+        </form>
+    </main>
+</body>

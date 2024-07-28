@@ -10,5 +10,12 @@
 
         <!-- HITBOX DEL MARCADOR AZUL -->
         <a href='@Url.Action("Marcador", "Home", new{marcador="azul"})' class="hitbox hitboxAzul"></a>
+
+        <!--CONTRASEÑA-->
+        <form action='@Url.Action("Resolver", "Home")' autocomplete="off">
+            <input type="hidden" name="sala" value="22">
+            <input type="text" name="contrasena" required class="text text22">
+            <input type="submit" hidden>
+        </form>
     </main>
 </body>

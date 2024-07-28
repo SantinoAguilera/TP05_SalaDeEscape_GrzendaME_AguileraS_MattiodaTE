@@ -27,13 +27,28 @@ static class Escape
     {
         estadoJuego++;
     }
-    public static bool ResolverSala(string incognita)
+    public static bool ResolverSala(string incognita, int contrasenaAceptada)
     {
         estadoJuego = GetEstadoJuego();
-        if (incognita == incognitasSalas[contrasenaActual])
+        if (contrasenaAceptada == contrasenaActual || contrasenaAceptada == -1)
         {
-            contrasenaActual++;
-            return true;
+            if (incognita == incognitasSalas[contrasenaActual])
+            {
+                contrasenaActual++;
+                return true;
+            }
+            else if (contrasenaActual == 2) //Tuve que hardcodearlo :(
+            {
+                if (incognita.ToLower() == incognitasSalas[contrasenaActual])
+                {
+                    estadoJuego = 5;
+                    contrasenaActual++;
+                    return true;
+                }
+                else if (incognita.ToLower() == "select contraseña from aulas;" && estadoJuego != 5) return true;
+                else return false;
+            }
+            else return false;
         }
         else return false;
     }
@@ -42,6 +57,7 @@ static class Escape
         sala /= 10;
 
         //Acá es donde tengo que poner if (estadoJuego == sth) estadoSalaID[sth]++
+        if (estadoJuego == 2) estadoSalaID[0] = 2;
         return estadoSalaID[sala - 1];
     }
 }
