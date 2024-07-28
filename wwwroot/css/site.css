@@ -45,7 +45,7 @@ header li
 {
     border-radius: 10px;
     background-color: #8BD8DC;
-    color: white;   
+    color: black;   
     padding: 10px 20px;
     border: none;
     text-decoration: none;
@@ -236,6 +236,14 @@ main div
 {
     margin-top: 1%;
     margin-bottom: 1%;
+}
+
+.titleColours
+{
+    background-color: #6D9DC5;
+    padding: 2%;
+    border-radius: 20px;
+    margin-bottom: 7.5%;
 }
 
 .imagesRight
@@ -717,7 +725,7 @@ main div
 footer
 {
     background-color: #6D9DC5;
-    color: white;
+    color: black;
     padding: 2%;
     padding-bottom: 5%;
 }
