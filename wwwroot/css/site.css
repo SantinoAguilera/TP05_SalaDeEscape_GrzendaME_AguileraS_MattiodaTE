@@ -653,6 +653,11 @@ main div
     right: 9.3vw;
 }
 
+.arrowMarcador{
+    rotate: 90deg;
+    right: 54.5vw;
+}
+
 /* Text inputs */
 
 .text12{
@@ -660,6 +665,10 @@ main div
     width: 8vw;
     top: 38.84vh;
     right: 35.15vw;
+}
+
+.text22{
+
 }
 
 .textContrasena{
@@ -685,6 +694,22 @@ main div
     color: white;
     top: 43vh;
     left: 9.5vw;
+}
+
+/* Marcador */
+.markerimg{
+    position: relative;
+    top: 41.5vh;
+    left: 3vw;
+    height: 13vh;
+    width: 48vw;
+}
+
+/* Dialogo */
+.dialogueBox{
+    position: relative;
+    height: 19vh;
+    top: 81vh;
 }
 
 /* Footer */

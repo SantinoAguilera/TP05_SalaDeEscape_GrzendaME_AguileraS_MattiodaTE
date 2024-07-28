@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "marcador";
+}
+<body class="bodyGame">
+    <main class="game">
+        @{
+            string url = "/images/rooms/sala" + ViewBag.salaID + ViewBag.estadoSalaID + ".jpg";
+            string urlMarcador = "/images/markers/" + ViewBag.marcador + ".png";
+        }
+        <img src="@url" class="mainimg darkened">
+
+        <img src="@urlMarcador" class="markerimg">
+
+        <!--FLECHA PARA VOLVER HACIA ATRAS-->
+        <a href='@Url.Action("Habitacion", "Home", new{sala=ViewBag.salaID})' class="arrow arrowMarcador"></a>
+    </main>
+</body>

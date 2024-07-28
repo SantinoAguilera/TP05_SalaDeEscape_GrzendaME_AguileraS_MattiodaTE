@@ -5,18 +5,13 @@ static class Escape
     public static int estadoJuego = 1;
     public static int contrasenaActual = 0;
     public static int[] estadoSalaID = new int[5];
-    public static int[] posSalaID = new int[5];
 
     //Metodos
     public static void InicializarJuego()
     {
         estadoJuego = 1;
         contrasenaActual = 0;
-        for(int i = 0; i < 5; i++)
-        {
-            estadoSalaID[i] = 1;
-            posSalaID[i] = 1;
-        }
+        for(int i = 0; i < 5; i++) estadoSalaID[i] = 1;
         incognitasSalas = ["vivainfo", "462", "select contraseña from aulas where aula = 'ami';", "173", "025358"]; //0 - 25 - 3 - 58
     }
     public static int GetEstadoJuego()
@@ -41,7 +36,6 @@ static class Escape
             {
                 if (incognita.ToLower() == incognitasSalas[contrasenaActual])
                 {
-                    estadoJuego = 5;
                     contrasenaActual++;
                     return true;
                 }
@@ -56,8 +50,19 @@ static class Escape
     {
         sala /= 10;
 
-        //Acá es donde tengo que poner if (estadoJuego == sth) estadoSalaID[sth]++
+        //==
         if (estadoJuego == 2) estadoSalaID[0] = 2;
+        else if (estadoJuego == 4)
+        {
+            estadoSalaID[2] = 2;
+            estadoSalaID[1] = 2;
+        }
+        else if (estadoJuego == 5) estadoSalaID[1] = 3;
+        else if (estadoJuego == 6) estadoSalaID[1] = 4;
+
+        //>=
+        if (estadoJuego >= 4) estadoSalaID[0] = 3;
+
         return estadoSalaID[sala - 1];
     }
 }

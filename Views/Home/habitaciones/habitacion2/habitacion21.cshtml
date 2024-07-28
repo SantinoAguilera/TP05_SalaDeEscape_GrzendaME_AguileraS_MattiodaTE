@@ -3,10 +3,13 @@
 }
 <body class="bodyGame">
     <main class="game">
-        <img src="/images/rooms/sala212.jpg" class="mainimg">
+        @{
+            string url = "/images/rooms/sala21" + ViewBag.estadoSalaID + ".jpg";
+        }
+        <img src="@url" class="mainimg">
 
         <!--FLECHAS DE CAMBIO DE HABITACION-->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=41, salaAnterior=21, estadoMin=7})' class="arrow arrow2141" tabindex="-1"></a></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=41, salaAnterior=21, estadoMin=7, contrasenaAceptada=3})' class="arrow arrow2141" tabindex="-1"></a></a>
         <a href='@Url.Action("Habitacion", "Home", new{sala=11})' class="arrow arrow2111" tabindex="-1"></a>
         <a href='@Url.Action("Habitacion", "Home", new{sala=31})' class="arrow arrow2131" tabindex="-1"></a>
 
@@ -15,5 +18,16 @@
 
         <!--ESCAPAR-->
         <a href='@Url.Action("Victoria", "Home")' class="arrow arrow2161" tabindex="-1"></a> <!--6 = escapar--> <!--TO DO-->
+
+        @{
+            if (ViewBag.estadoSalaID == 1)
+            {
+                <style>
+                    .hitbox2122{
+                        right: 100vw;
+                    }
+                </style>
+            }
+        }
     </main>
 </body>

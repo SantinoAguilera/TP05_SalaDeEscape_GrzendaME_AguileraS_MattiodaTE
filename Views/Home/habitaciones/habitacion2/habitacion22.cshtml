@@ -3,13 +3,16 @@
 }
 <body class="bodyGame">
     <main class="game">
-        <img src="/images/rooms/sala222.jpg" class="mainimg">
+        @{
+            string url = "/images/rooms/sala22" + ViewBag.estadoSalaID + ".jpg";
+        }
+        <img src="@url" class="mainimg">
 
         <!-- CAMBIO DE POSICION -->
         <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow2221"></a>
 
         <!-- HITBOX DEL MARCADOR AZUL -->
-        <a href='@Url.Action("Marcador", "Home", new{marcador="azul"})' class="hitbox hitboxAzul"></a>
+        <a href='@Url.Action("Marcador", "Home", new{sala=22, marcador="azul"})' class="hitbox hitboxAzul"></a>
 
         <!--CONTRASEÑA-->
         <form action='@Url.Action("Resolver", "Home")' autocomplete="off">
@@ -17,5 +20,15 @@
             <input type="text" name="contrasena" required class="text text22">
             <input type="submit" hidden>
         </form>
+
+        @{
+            if (ViewBag.estadoSalaID == 4){
+                <style>
+                    .text22{
+                        right: 100vw;
+                    }
+                </style>
+            }
+        }
     </main>
 </body>

@@ -61,7 +61,11 @@ public class HomeController : Controller
 
     public IActionResult Resolver(int sala, string contrasena)
     {
-        if (Escape.ResolverSala(contrasena, -1)) Escape.AvanzarEstado();
+        if (Escape.ResolverSala(contrasena, -1))
+        {
+            Escape.AvanzarEstado();
+            if (Escape.GetEstadoJuego() == 5 && contrasena == Escape.incognitasSalas[2]) Escape.AvanzarEstado(); //Lo avanzo de nuevo para saltear la respuesta incorrecta
+        }
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
         return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala);
     }
@@ -81,6 +85,24 @@ public class HomeController : Controller
             url = salaAnterior.ToString().Substring(0, 1) + "/habitacion" + salaAnterior;
         }
         return View("habitaciones/habitacion" + url);
+    }
+
+    public IActionResult Marcador(int sala, string marcador)
+    {
+        ViewBag.salaID = sala;
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+        ViewBag.marcador = marcador;
+
+        return View("habitaciones/marcador");
+    }
+
+    public IActionResult Dialogo(int dialogo, int estadoDialogo = 0)
+    {
+        Escape.AvanzarEstado();
+
+        ViewBag.estadoDialogo = estadoDialogo;
+
+        return View("habitaciones/dialogo" + dialogo);
     }
 
     public IActionResult Privacy()

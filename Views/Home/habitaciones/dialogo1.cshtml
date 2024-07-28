@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "dialogo1";
+}
+<body class="bodyGame">
+    <main class="game">
+        <img src="/images/rooms/sala312.jpg" class="mainimg">
+
+        @{
+            if (ViewBag.estadoDialogo == 0) 
+            {
+                <head>
+                    <meta http-equiv="refresh" content="3; url=@Url.Action("Dialogo", "Home", new{dialogo=1, estadoDialogo=1})" />
+                </head>
+            }
+            else
+            {
+                <img src="/images/misc/DialogueBox.png" class="dialogueBox">
+            }
+        }
+    </main>
+</body>
