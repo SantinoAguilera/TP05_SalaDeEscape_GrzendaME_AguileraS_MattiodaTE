@@ -9,16 +9,16 @@
         <img src="@url" class="mainimg">
 
         <!-- CAMBIO DE POSICION -->
-        <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow2221"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow2221" tabindex="-1"></a>
 
         <!-- HITBOX DEL MARCADOR AZUL -->
-        <a href='@Url.Action("Marcador", "Home", new{sala=22, marcador="azul"})' class="hitbox hitboxAzul"></a>
+        <a href='@Url.Action("Marcador", "Home", new{sala=22, marcador="azul"})' class="hitbox hitboxAzul" tabindex="-1"></a>
 
         <!--CONTRASEÑA-->
-        <form action='@Url.Action("Resolver", "Home")' autocomplete="off">
-            <input type="hidden" name="sala" value="22">
-            <input type="text" name="contrasena" required class="text text22">
-            <input type="submit" hidden>
+        <form action='@Url.Action("Resolver", "Home")' autocomplete="off" tabindex="-1">
+            <input type="hidden" name="sala" value="22" tabindex="-1">
+            <input type="text" name="contrasena" required class="text text22" tabindex="-1">
+            <input type="submit" hidden tabindex="-1">
         </form>
 
         @{

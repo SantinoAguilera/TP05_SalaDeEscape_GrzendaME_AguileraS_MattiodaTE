@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
 using TP05_SalaDeEscape_GrzendaME_AguileraS_MattiodaTE.Models;
 
@@ -85,6 +87,33 @@ public class HomeController : Controller
             url = salaAnterior.ToString().Substring(0, 1) + "/habitacion" + salaAnterior;
         }
         return View("habitaciones/habitacion" + url);
+    }
+
+    public IActionResult BotonesStanca(int num, int botonNum)
+    {
+        bool resultado = Escape.ResolverStanca(num, botonNum);
+        if (resultado)
+        {
+            Escape.AvanzarEstado();
+        }
+        return View("habitaciones/habitacion4/habitacion43");
+    }
+
+    public IActionResult BotonesCaja(string num)
+    {
+        Escape.ResolverCaja(num);
+        return View("habitaciones/habitacion5/habitacion52");
+    }
+
+    public IActionResult CajaEnter()
+    {
+
+    }
+
+    public IActionResult CajaBackspace()
+    {
+        Escape.BackspaceCaja();
+        return View("habitaciones/habitacion5/habitacion52");
     }
 
     public IActionResult Marcador(int sala, string marcador)

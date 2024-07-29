@@ -17,4 +17,38 @@
         <!-- HITBOX DEL MARCADOR VERDE -->
         <a href='@Url.Action("Marcador", "Home", new{sala=11, marcador="verde"})' class="hitbox hitboxVerde" tabindex="-1"></a>
     </main>
+@{
+    if (ViewBag.estadoSalaID == 2)
+    {
+        <style>
+            .hitboxVerde
+            {
+                height: 0.8vh;
+                width: 4.2vw;
+                top: 95.2vh;
+                right: 33.6vw;
+            }
+        </style>
+    }
+    else if (ViewBag.estadoSalaID == 3)
+    {
+        <style>
+            .hitbox1112
+            {
+                height: 10.5vh;
+                width: 10vw;
+                top: 38.5vh;
+                left: 24.6vw;
+            }
+            .hitboxVerde
+            {
+                height: 0.8vh;
+                width: 4.2vw;
+                top: 92.65vh;
+                right: 31.6vw;
+            }
+        </style>
+    }
+}
+
 </body>
