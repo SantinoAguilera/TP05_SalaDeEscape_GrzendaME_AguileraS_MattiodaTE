@@ -370,7 +370,7 @@ main div
 
 .hitbox{
     position: relative;
-    background-color: transparent;
+    background-color: white;
     height: 1vh;
     width: 1vw;
 }
@@ -438,21 +438,21 @@ main div
 {
     width: 6.4vw;
     top: 27.7vh;
-    right: 12.5vw;
+    right: 12.85vw;
 }
 
 .hitboxStanca2
 {
     width: 6.9vw;
     top: 31.7vh;
-    right: 18.8vw;
+    right: 19.1vw;
 }
 
 .hitboxStanca3
 {
-    width: 8.4vw;
+    width: 7.8vw;
     top: 35.5vh;
-    right: 25.6vw;
+    right: 25.9vw;
 }
 
 .hitbox5152
@@ -618,15 +618,16 @@ main div
 }
 
 .arrow3121{
+    position: absolute;
     top: 80vh;
-    left: 2.47vw;
 }
 
 .arrow3151{
+    position: absolute;
     height: 14vh;
     width: 4.95vw;
     top: 73vh;
-    left: 21vw;
+    left: 71vw;
     rotate: 180deg;
 }
 
@@ -677,9 +678,9 @@ main div
 
 .text12{
     height: 1.3vh;
-    width: 8vw;
-    top: 38.84vh;
-    right: 35.15vw;
+    width: 7.71vw;
+    top: 38.88vh;
+    right: 35vw;
 }
 
 .text22{

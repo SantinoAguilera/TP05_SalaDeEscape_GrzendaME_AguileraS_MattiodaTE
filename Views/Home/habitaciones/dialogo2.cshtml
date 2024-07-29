@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "dialogo3";
+}
+<body class="bodyGame">
+    <main class="game">
+        @{
+            if (ViewBag.estadoDialogo < 4)
+            {
+                <img src="/images/rooms/sala312.jpg" class="mainimg">
+            }
+
+            if (ViewBag.estadoDialogo < 6)
+            {
+                <img src="/images/misc/DialogueBox.png" class="dialogueBox">
+                <a href='@Url.Action("Dialogo", "Home", new{dialogo=2, estadoDialogo=ViewBag.estadoDialogo + 1})' class="hitbox hitboxDialogue" tabindex="-1"></a>
+                <p class="dialogueInfo">Haz click para continuar</p>
+            }
+
+            if (ViewBag.estadoDialogo == 0)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">Ya corregí las pruebas.</p>
+            }
+            else if (ViewBag.estadoDialogo == 1)
+            {
+                <p class="dialogueName">Stancatrón</p>
+                <p class="pDialogue">¿Las enviaste también?</p>
+            }
+            else if (ViewBag.estadoDialogo == 2)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">Sí.</p>
+            }
+            else if (ViewBag.estadoDialogo == 3)
+            {
+                <p class="dialogueName">Stancatrón</p>
+                <p class="pDialogue">Muchas gracias, ahí abro la puerta.</p>
+            }
+            else if (ViewBag.estadoDialogo == 4)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">?!</p>
+            }
+            else if (ViewBag.estadoDialogo == 5)
+            {
+                <img src="/images/rooms/sala313.jpg" class="mainimg">
+                <p class="dialogueName">Stancatrón</p>
+                <p class="pDialogue">Listo.</p>
+            }
+            else if (ViewBag.estadoDialogo >= 6)
+            {
+                <head>
+                    <meta http-equiv="refresh" content="0; url=@Url.Action("Habitacion", "Home", new{sala=31})" />
+                </head>
+            }
+        }
+    </main>
+</body>
