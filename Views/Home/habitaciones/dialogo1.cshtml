@@ -9,12 +9,70 @@
             if (ViewBag.estadoDialogo == 0) 
             {
                 <head>
-                    <meta http-equiv="refresh" content="3; url=@Url.Action("Dialogo", "Home", new{dialogo=1, estadoDialogo=1})" />
+                    <meta http-equiv="refresh" content="1.5; url=@Url.Action("Dialogo", "Home", new{dialogo=1, estadoDialogo=1})" />
                 </head>
             }
             else
             {
                 <img src="/images/misc/DialogueBox.png" class="dialogueBox">
+                <a href='@Url.Action("Dialogo", "Home", new{dialogo=1, estadoDialogo=ViewBag.estadoDialogo + 1})' class="hitbox hitboxDialogue" tabindex="-1"></a>
+                <p class="dialogueInfo">Haz click para continuar</p>
+            }
+            if (ViewBag.estadoDialogo == 1)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">¿Hola?</p>
+            }
+            else if (ViewBag.estadoDialogo == 2)
+            {
+                <p class="dialogueName">???</p>
+                <p class="pDialogue">Buenas tardes.</p>
+            }
+            else if (ViewBag.estadoDialogo == 3)
+            {
+                <p class="dialogueName">Stancatron</p>
+                <p class="pDialogue">Soy Stancatron, un robot creado por Gabriel Stancanelli. Mi propósito es corregir pruebas por él.</p>
+            }
+            else if (ViewBag.estadoDialogo == 4)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">Mucho gusto, ¿me podrías ayudar a abrir esa puerta?</p>
+            }
+            else if (ViewBag.estadoDialogo == 5)
+            {
+                <p class="dialogueName">Stancatron</p>
+                <p class="pDialogue">Te puedo ayudar si me ayudás con algo a mí también. La realidad es que Stanca me creó porque le daba fiaca corregir las pruebas.</p>
+            }
+            else if (ViewBag.estadoDialogo == 6)
+            {
+                <p class="dialogueName">Stancatron</p>
+                <p class="pDialogue">Pero a mí también me da fiaca.</p>
+            }
+            else if (ViewBag.estadoDialogo == 7)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">Entonces, ¿querés que las corrija?</p>
+            }
+            else if (ViewBag.estadoDialogo == 8)
+            {
+                <p class="dialogueName">Stancatron</p>
+                <p class="pDialogue">Exacto, ¿podrías ir al AMI a corregirlas en la computadora de los profesores? Ya inicié sesión allá.</p>
+            }
+            else if (ViewBag.estadoDialogo == 9)
+            {
+                <p class="dialogueName">Stancatron</p>
+                <p class="pDialogue">Por cierto, no te olvides de enviarlas también.</p>
+            }
+            else if (ViewBag.estadoDialogo == 10)
+            {
+                <p class="dialogueName">Yo</p>
+                <p class="pDialogue">Perfecto, ya mismo lo hago.</p>
+            }
+            else if (ViewBag.estadoDialogo == 11)
+            {
+                <head>
+                    <meta http-equiv="refresh" content="0; url=@Url.Action("Habitacion", "Home", new{sala=31})" />
+                </head>
             }
         }
     </main>

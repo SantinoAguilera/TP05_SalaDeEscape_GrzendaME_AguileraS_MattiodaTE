@@ -98,7 +98,7 @@ public class HomeController : Controller
 
     public IActionResult Dialogo(int dialogo, int estadoDialogo = 0)
     {
-        Escape.AvanzarEstado();
+        if (estadoDialogo == 0) Escape.AvanzarEstado();
 
         ViewBag.estadoDialogo = estadoDialogo;
 
