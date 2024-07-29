@@ -107,7 +107,12 @@ public class HomeController : Controller
 
     public IActionResult CajaEnter()
     {
-
+        bool resultado = Escape.CheckearCaja();
+        if (resultado)
+        {
+            Escape.AvanzarEstado();
+        }
+        return View("habitaciones/habitacion5/habitacion52");
     }
 
     public IActionResult CajaBackspace()
