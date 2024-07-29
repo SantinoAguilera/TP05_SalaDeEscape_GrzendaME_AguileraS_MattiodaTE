@@ -343,6 +343,23 @@ main div
     z-index: -1;
 }
 
+.errorMessage
+{
+    position: absolute;
+    background-color: rgb(175, 20, 20);
+    text-align: center;
+    height: 5.7vh;
+    width: 15vh;
+    top: 94.32vh;
+    right: 79.02vw;
+    color: white;
+}
+
+.errorMessage h1
+{
+    font-size: 3.5vh;
+}
+
 /* Interactuables */
 
 .arrow{
