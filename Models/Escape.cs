@@ -9,6 +9,7 @@ static class Escape
     public static int[] estadoSalaID = new int[5];
     private static int sumStanca = 0;
     private static bool[] boton = new bool[3];
+    private static string codigo = String.Empty;
 
     //Metodos
     public static void InicializarJuego()
@@ -78,5 +79,30 @@ static class Escape
         }
         if (sumStanca >= 2) return true;
         else return false;
+    }
+    public static void ResolverCaja(string num)
+    {
+        if (codigo.Length < 6)
+        {
+            codigo += num;
+        }
+    }
+    public static bool CheckearCaja()
+    {
+        if (codigo == incognitasSalas[contrasenaActual])
+        {   
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static void BackspaceCaja()
+    {
+        if (codigo.Length != 0)
+        {
+            codigo = codigo.Substring(0, codigo.Length - 2);
+        }
     }
 }

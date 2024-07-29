@@ -99,6 +99,23 @@ public class HomeController : Controller
         return View("habitaciones/habitacion4/habitacion43");
     }
 
+    public IActionResult BotonesCaja(string num)
+    {
+        Escape.ResolverCaja(num);
+        return View("habitaciones/habitacion5/habitacion52");
+    }
+
+    public IActionResult CajaEnter()
+    {
+
+    }
+
+    public IActionResult CajaBackspace()
+    {
+        Escape.BackspaceCaja();
+        return View("habitaciones/habitacion5/habitacion52");
+    }
+
     public IActionResult Marcador(int sala, string marcador)
     {
         ViewBag.salaID = sala;
