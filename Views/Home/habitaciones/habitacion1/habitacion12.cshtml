@@ -34,6 +34,15 @@
                     }
                 </style>
             }
+            if (ViewBag.error == true)
+            {
+                <head>
+                    <meta http-equiv="refresh" content="2; url=@Url.Action("Habitacion", "Home", new{sala=12})" />
+                </head>
+                <div class="errorMessage">
+                    <h1>ERROR</h1>
+                </div>
+            }
         }
     </main>
 </body>

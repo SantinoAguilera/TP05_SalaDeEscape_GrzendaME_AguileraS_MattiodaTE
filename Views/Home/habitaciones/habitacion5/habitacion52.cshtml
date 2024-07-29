@@ -25,4 +25,15 @@
         <!-- HITBOX DEL MARCADOR ROJO -->
         <a href='@Url.Action("Marcador", "Home", new{sala=52, marcador="rojo"})' class="hitbox hitboxRojo2" tabindex="-1"></a>
     </main>
+@{
+    if (ViewBag.error == true)
+    {
+        <head>
+            <meta http-equiv="refresh" content="2; url=@Url.Action("Habitacion", "Home", new{sala=52})" />
+        </head>
+        <div class="errorMessage">
+            <h1>ERROR</h1>
+        </div>
+    }
+}
 </body>

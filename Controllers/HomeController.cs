@@ -68,6 +68,10 @@ public class HomeController : Controller
             Escape.AvanzarEstado();
             if (Escape.GetEstadoJuego() == 5 && contrasena == Escape.incognitasSalas[2]) Escape.AvanzarEstado(); //Lo avanzo de nuevo para saltear la respuesta incorrecta
         }
+        else
+        {
+            ViewBag.error = true;
+        }
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
         return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala);
     }
@@ -85,6 +89,7 @@ public class HomeController : Controller
         {
             ViewBag.estadoSalaID = Escape.RevisarEstadoSala(salaAnterior);
             url = salaAnterior.ToString().Substring(0, 1) + "/habitacion" + salaAnterior;
+            ViewBag.error = true;
         }
         return View("habitaciones/habitacion" + url);
     }
