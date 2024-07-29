@@ -64,6 +64,8 @@ static class Escape
         }
         else if (estadoJuego == 5) estadoSalaID[1] = 3;
         else if (estadoJuego == 6) estadoSalaID[1] = 4;
+        else if (estadoJuego == 8) estadoSalaID[2] = 3;
+        else if (estadoJuego == 9) estadoSalaID[2] = 4;
 
         //>=
         if (estadoJuego >= 4) estadoSalaID[0] = 3;
@@ -72,10 +74,10 @@ static class Escape
     }
     public static bool ResolverStanca(int num, int botonNum)
     {
-        if (!boton[botonNum])
+        if ((!boton[botonNum - 1] && botonNum != 3) || (botonNum == 3 && boton[0]))
         {
-        sumStanca += num;
-        boton[botonNum] = true;
+            sumStanca += num;
+            boton[botonNum - 1] = true;
         }
         if (sumStanca >= 2) return true;
         else return false;

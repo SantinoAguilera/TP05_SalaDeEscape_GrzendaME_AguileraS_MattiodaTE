@@ -4,7 +4,11 @@
 <body class="bodyGame">
     <main class="game">
         @{
-            string url = "/images/rooms/sala31" + ViewBag.estadoSalaID + ".jpg";
+            int estadoSalaID = ViewBag.estadoSalaID;
+            
+            if (ViewBag.estadoSalaID >= 3) estadoSalaID--;
+
+            string url = "/images/rooms/sala31" + estadoSalaID + ".jpg";
 
             <img src="@url" class="mainimg">
 
@@ -16,7 +20,16 @@
             }
             else if (ViewBag.estadoSalaID == 2)
             {
-                <!--FLECHAS DE CAMBIO DE HABITACION-->
+                <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow3121" tabindex="-1"></a>
+            }
+            else if (ViewBag.estadoSalaID == 3)
+            {
+                <head>
+                    <meta http-equiv="refresh" content="0; url=@Url.Action("Dialogo", "Home", new{dialogo=2})" />
+                </head>
+            }
+            else if (ViewBag.estadoSalaID == 4)
+            {
                 <a href='@Url.Action("Habitacion", "Home", new{sala=21})' class="arrow arrow3121" tabindex="-1"></a>
                 <a href='@Url.Action("Habitacion", "Home", new{sala=51})' class="arrow arrow3151" tabindex="-1"></a>
             }

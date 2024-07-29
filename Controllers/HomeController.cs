@@ -66,7 +66,7 @@ public class HomeController : Controller
         if (Escape.ResolverSala(contrasena, -1))
         {
             Escape.AvanzarEstado();
-            if (Escape.GetEstadoJuego() == 5 && contrasena == Escape.incognitasSalas[2]) Escape.AvanzarEstado(); //Lo avanzo de nuevo para saltear la respuesta incorrecta
+            if (Escape.GetEstadoJuego() == 5 && contrasena.ToLower() == Escape.incognitasSalas[2]) Escape.AvanzarEstado(); //Lo avanzo de nuevo para saltear la respuesta incorrecta
         }
         else
         {
@@ -96,11 +96,7 @@ public class HomeController : Controller
 
     public IActionResult BotonesStanca(int num, int botonNum)
     {
-        bool resultado = Escape.ResolverStanca(num, botonNum);
-        if (resultado)
-        {
-            Escape.AvanzarEstado();
-        }
+        if (Escape.ResolverStanca(num, botonNum)) Escape.AvanzarEstado();
         return View("habitaciones/habitacion4/habitacion43");
     }
 
@@ -112,11 +108,7 @@ public class HomeController : Controller
 
     public IActionResult CajaEnter()
     {
-        bool resultado = Escape.CheckearCaja();
-        if (resultado)
-        {
-            Escape.AvanzarEstado();
-        }
+        if (Escape.CheckearCaja()) Escape.AvanzarEstado();
         return View("habitaciones/habitacion5/habitacion52");
     }
 
