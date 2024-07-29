@@ -376,8 +376,7 @@ main div
 
 .text{
     position: relative;
-    background: black;
-    color: white;
+    background: grey;
     border: 0px;
 }
 
@@ -697,10 +696,17 @@ main div
     width: 8vw;
     top: 38.84vh;
     right: 35.15vw;
+    color: white;
 }
 
-.text22{
-
+.text22
+{
+    font-size: larger;
+    height: 3vh;
+    width: 28.4vw;
+    top: 16.2vh;
+    left: 14.45vw;
+    color: black;
 }
 
 .textContrasena{
