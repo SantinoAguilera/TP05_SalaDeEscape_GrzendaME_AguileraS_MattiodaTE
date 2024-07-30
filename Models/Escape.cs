@@ -7,8 +7,8 @@ static class Escape
     public static int estadoJuego = 1;
     public static int contrasenaActual = 0;
     public static int[] estadoSalaID = new int[5];
-    private static int sumStanca = 0;
     private static bool[] boton = new bool[3];
+    private static bool stancaFinalizado = false;
     private static string codigo = String.Empty;
 
     //Metodos
@@ -72,14 +72,14 @@ static class Escape
 
         return estadoSalaID[sala - 1];
     }
-    public static bool ResolverStanca(int num, int botonNum)
+    public static bool ResolverStanca(int botonNum)
     {
-        if ((!boton[botonNum - 1] && botonNum != 3) || (botonNum == 3 && boton[0]))
+        if (botonNum != 3 || botonNum == 3 && boton[0]) boton[botonNum - 1] = true; 
+        if ((boton[0] && boton[2] || boton[1]) && !stancaFinalizado)
         {
-            sumStanca += num;
-            boton[botonNum - 1] = true;
+            stancaFinalizado = true;
+            return true;
         }
-        if (sumStanca >= 2) return true;
         else return false;
     }
     public static void ResolverCaja(string num)

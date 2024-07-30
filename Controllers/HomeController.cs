@@ -94,9 +94,9 @@ public class HomeController : Controller
         return View("habitaciones/habitacion" + url);
     }
 
-    public IActionResult BotonesStanca(int num, int botonNum)
+    public IActionResult BotonesStanca(int botonNum)
     {
-        if (Escape.ResolverStanca(num, botonNum)) Escape.AvanzarEstado();
+        if (Escape.ResolverStanca(botonNum)) Escape.AvanzarEstado();
         return View("habitaciones/habitacion4/habitacion43");
     }
 
