@@ -162,6 +162,10 @@ static class Escape
         {
             return 2;
         }
+        else if (corregido == false && enviado == true)
+        {
+            return 3;
+        }
         else
         {
             return 0;

@@ -113,6 +113,9 @@ public class HomeController : Controller
             case 2:
                 ViewBag.hechoStanca = "ENVIADO";
                 break;
+            case 3:
+                ViewBag.hechoStanca = "how, enviar no se puede tocar antes de corregir";
+                break;
         }
         return View("habitaciones/habitacion4/habitacion43");
     }

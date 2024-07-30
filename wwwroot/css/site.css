@@ -343,6 +343,19 @@ main div
     z-index: -1;
 }
 
+.returnMenu
+{
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    z-index: 3;
+}
+
+.returnMenu a
+{
+    font-size: 2vh;
+}
+
 .errorMessage
 {
     position: absolute;
@@ -737,11 +750,6 @@ main div
 .stancaSend h1
 {
     font-size: 3.5vh;
-}
-
-.displayHidden
-{
-    display:"hidden";
 }
 
 /* Contraseña */
