@@ -722,6 +722,23 @@ main div
     font-size: 2vh;
 }
 
+.stancaSend
+{
+    position: absolute;
+    text-align: center;
+    color: black;
+    height: 6vh;
+    width: 15vh;
+    top: 48vh;
+    right: 45vw;
+    rotate: -0.8deg;
+}
+
+.stancaSend h1
+{
+    font-size: 3.5vh;
+}
+
 /* Contraseña */
 .darkened{
     filter: brightness(40%);

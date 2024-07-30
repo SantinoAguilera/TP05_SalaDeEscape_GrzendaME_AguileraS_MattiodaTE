@@ -18,7 +18,13 @@ static class Escape
         estadoJuego = 1;
         contrasenaActual = 0;
         for(int i = 0; i < 5; i++) estadoSalaID[i] = 1;
-        incognitasSalas = ["vivainfo", "462", "select\\s+(?:contraseña|\\*)\\s+from\\s+aulas(?<where>\\s+where\\s+aula\\s*=\\s*'ami')?;?", "173", "025358"]; //0 - 25 - 3 - 58
+        incognitasSalas = [
+            "vivainfo",
+            "462",
+            "select\\s+(?:contraseña|\\*)\\s+from\\s+aulas(?<where>\\s+where\\s+aula\\s*=\\s*'ami')?;?",
+            "173",
+            "025358"
+        ]; //0 - 25 - 3 - 58
     }
     public static int GetEstadoJuego()
     {
@@ -120,7 +126,7 @@ static class Escape
     {
         if (codigo.Length != 0)
         {
-            codigo = codigo.Substring(0, codigo.Length - 2);
+            codigo = codigo.Substring(0, codigo.Length - 1);
         }
     }
 }

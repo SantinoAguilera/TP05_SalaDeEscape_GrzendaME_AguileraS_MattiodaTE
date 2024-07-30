@@ -97,6 +97,7 @@ public class HomeController : Controller
     public IActionResult BotonesStanca(int num, int botonNum)
     {
         if (Escape.ResolverStanca(num, botonNum)) Escape.AvanzarEstado();
+        ViewBag.hechoStanca = "ENVIADO";
         return View("habitaciones/habitacion4/habitacion43");
     }
 
