@@ -8,6 +8,9 @@ static class Escape
     public static int estadoJuego = 1;
     public static int contrasenaActual = 0;
     public static int[] estadoSalaID = new int[5];
+    private static bool corregido = false;
+    private static bool enviado = false;
+    private static bool stancaHecho = false;
     private static int sumStanca = 0;
     private static bool[] boton = new bool[3];
     private static string codigo = String.Empty;
@@ -19,11 +22,11 @@ static class Escape
         contrasenaActual = 0;
         for(int i = 0; i < 5; i++) estadoSalaID[i] = 1;
         incognitasSalas = [
-            "vivainfo",
-            "462",
-            "select\\s+(?:contraseña|\\*)\\s+from\\s+aulas(?<where>\\s+where\\s+aula\\s*=\\s*'ami')?;?",
-            "173",
-            "025358"
+            "^vivainfo$",
+            "^462$",
+            @"\s*select\s+(?:contraseña|\*)\s+from\s+aulas(?<where>\s+where\s+aula\s*=\s*'ami')?;?",
+            "^173$",
+            "^025358$"
         ]; //0 - 25 - 3 - 58
     }
     public static int GetEstadoJuego()
@@ -45,10 +48,19 @@ static class Escape
             {
                 if (contrasenaActual == 2)
                 {
+                    // caso especial para SQL
                     if (match.Groups["where"].Success)
                     {
+                        // WHERE detectado, avanzamos contraseña
                         contrasenaActual++;
-                        AvanzarEstado();
+                        // y seteamos estado 5 para que pase a 6 al retornar
+                        estadoJuego = 5;
+                    }
+                    else
+                    {
+                        // WHERE no detectado,
+                        // seteamos estado 4 para que pase a 5 al retornar
+                        estadoJuego = 4;
                     }
                 }
                 else
@@ -94,8 +106,43 @@ static class Escape
 
         return estadoSalaID[sala - 1];
     }
-    public static bool ResolverStanca(int num, int botonNum)
+    public static bool ResolverStanca(int botonNum)
     {
+        switch(botonNum)
+        {
+            case 1:
+                if (corregido == false)
+                {
+                    corregido = true;
+                }
+                break;
+            case 2:
+                if (corregido == false)
+                {
+                    corregido = true;
+                }
+                if (enviado == false)
+                {
+                    enviado = true;
+                }
+                break;
+            case 3:
+                if (corregido == true && enviado == false)
+                {
+                    enviado = true;
+                }
+                break;
+        }
+        if (corregido == true && enviado == true && stancaHecho == false)
+        {
+            stancaHecho = true;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        /*
         if ((!boton[botonNum - 1] && botonNum != 3) || (botonNum == 3 && boton[0]))
         {
             sumStanca += num;
@@ -103,6 +150,22 @@ static class Escape
         }
         if (sumStanca >= 2) return true;
         else return false;
+        */
+    }
+    public static int CheckearStanca()
+    {
+        if (corregido == true && enviado == false)
+        {
+            return 1;
+        }
+        else if (corregido == true && enviado == true)
+        {
+            return 2;
+        }
+        else
+        {
+            return 0;
+        }
     }
     public static void ResolverCaja(string num)
     {

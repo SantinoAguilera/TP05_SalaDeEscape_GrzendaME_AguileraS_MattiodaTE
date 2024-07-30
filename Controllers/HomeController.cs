@@ -94,10 +94,26 @@ public class HomeController : Controller
         return View("habitaciones/habitacion" + url);
     }
 
-    public IActionResult BotonesStanca(int num, int botonNum)
+    public IActionResult BotonesStanca(int botonNum)
     {
-        if (Escape.ResolverStanca(num, botonNum)) Escape.AvanzarEstado();
-        ViewBag.hechoStanca = "ENVIADO";
+        if (Escape.ResolverStanca(botonNum)) Escape.AvanzarEstado();
+        CartelStanca();
+        return View("habitaciones/habitacion4/habitacion43");
+    }
+
+    public IActionResult CartelStanca()
+    {
+        switch(Escape.CheckearStanca())
+        {
+            case 0:
+                break;
+            case 1:
+                ViewBag.hechoStanca = "CORREGIDO";
+                break;
+            case 2:
+                ViewBag.hechoStanca = "ENVIADO";
+                break;
+        }
         return View("habitaciones/habitacion4/habitacion43");
     }
 

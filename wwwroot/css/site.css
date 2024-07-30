@@ -739,6 +739,11 @@ main div
     font-size: 3.5vh;
 }
 
+.displayHidden
+{
+    display:"hidden";
+}
+
 /* Contraseña */
 .darkened{
     filter: brightness(40%);
