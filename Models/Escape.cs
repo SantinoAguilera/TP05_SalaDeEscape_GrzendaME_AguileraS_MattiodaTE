@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 static class Escape
 {
@@ -17,7 +18,7 @@ static class Escape
         estadoJuego = 1;
         contrasenaActual = 0;
         for(int i = 0; i < 5; i++) estadoSalaID[i] = 1;
-        incognitasSalas = ["vivainfo", "462", "select contraseña from aulas where aula = 'ami';", "173", "025358"]; //0 - 25 - 3 - 58
+        incognitasSalas = ["vivainfo", "462", "select\\s+(?:contraseña|\\*)\\s+from\\s+aulas(?<where>\\s+where\\s+aula\\s*=\\s*'ami')?;?", "173", "025358"]; //0 - 25 - 3 - 58
     }
     public static int GetEstadoJuego()
     {
@@ -32,11 +33,25 @@ static class Escape
         estadoJuego = GetEstadoJuego();
         if (contrasenaAceptada == contrasenaActual || contrasenaAceptada == -1)
         {
-            if (incognita == incognitasSalas[contrasenaActual])
+            Regex regex = new(incognitasSalas[contrasenaActual]);
+            var match = regex.Match(incognita.ToLower());
+            if (match.Success)
             {
-                contrasenaActual++;
+                if (contrasenaActual == 2)
+                {
+                    if (match.Groups["where"].Success)
+                    {
+                        contrasenaActual++;
+                        AvanzarEstado();
+                    }
+                }
+                else
+                {
+                    contrasenaActual++;
+                }
                 return true;
             }
+            /*
             else if (contrasenaActual == 2) //Tuve que hardcodearlo :(
             {
                 if (incognita.ToLower() == incognitasSalas[contrasenaActual])
@@ -47,6 +62,7 @@ static class Escape
                 else if (incognita.ToLower() == "select contraseña from aulas;" && estadoJuego != 5) return true;
                 else return false;
             }
+            */
             else return false;
         }
         else return false;

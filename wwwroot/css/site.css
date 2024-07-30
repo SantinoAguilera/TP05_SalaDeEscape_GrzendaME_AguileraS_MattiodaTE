@@ -376,7 +376,7 @@ main div
 
 .text{
     position: relative;
-    background: grey;
+    background: transparent;
     border: 0px;
 }
 
@@ -386,7 +386,7 @@ main div
 
 .hitbox{
     position: relative;
-    background-color: white;
+    background-color: transparent;
     height: 1vh;
     width: 1vw;
 }
