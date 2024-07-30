@@ -6,6 +6,9 @@
         <title>@ViewData["Title"] - Data Breach</title>
         <link rel="stylesheet" href="~/css/site.css">
     </head>
+    <nav class="returnMenu">
+        <a href='@Url.Action("Index", "Home")' class="button">Menu Principal</a>
+    </nav>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderBody()
 </html>

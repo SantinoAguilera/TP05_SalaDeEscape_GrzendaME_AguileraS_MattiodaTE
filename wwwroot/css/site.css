@@ -343,6 +343,19 @@ main div
     z-index: -1;
 }
 
+.returnMenu
+{
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    z-index: 3;
+}
+
+.returnMenu a
+{
+    font-size: 2vh;
+}
+
 .errorMessage
 {
     position: absolute;
@@ -376,8 +389,7 @@ main div
 
 .text{
     position: relative;
-    background: black;
-    color: white;
+    background: transparent;
     border: 0px;
 }
 
@@ -387,7 +399,7 @@ main div
 
 .hitbox{
     position: relative;
-    background-color: white;
+    background-color: transparent;
     height: 1vh;
     width: 1vw;
 }
@@ -698,10 +710,17 @@ main div
     width: 7.71vw;
     top: 38.88vh;
     right: 35vw;
+    color: white;
 }
 
-.text22{
-
+.text22
+{
+    font-size: larger;
+    height: 3vh;
+    width: 28.4vw;
+    top: 16.2vh;
+    left: 14.45vw;
+    color: black;
 }
 
 .textContrasena{
@@ -714,6 +733,23 @@ main div
     border: 0.2vh solid black;
     border-radius: 4vw;
     font-size: 2vh;
+}
+
+.stancaSend
+{
+    position: absolute;
+    text-align: center;
+    color: black;
+    height: 6vh;
+    width: 15vh;
+    top: 48vh;
+    right: 45vw;
+    rotate: -0.8deg;
+}
+
+.stancaSend h1
+{
+    font-size: 3.5vh;
 }
 
 /* Contraseña */

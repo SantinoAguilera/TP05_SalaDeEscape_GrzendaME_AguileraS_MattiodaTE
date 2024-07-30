@@ -97,6 +97,26 @@ public class HomeController : Controller
     public IActionResult BotonesStanca(int botonNum)
     {
         if (Escape.ResolverStanca(botonNum)) Escape.AvanzarEstado();
+        CartelStanca();
+        return View("habitaciones/habitacion4/habitacion43");
+    }
+
+    public IActionResult CartelStanca()
+    {
+        switch(Escape.CheckearStanca())
+        {
+            case 0:
+                break;
+            case 1:
+                ViewBag.hechoStanca = "CORREGIDO";
+                break;
+            case 2:
+                ViewBag.hechoStanca = "ENVIADO";
+                break;
+            case 3:
+                ViewBag.hechoStanca = "how, enviar no se puede tocar antes de corregir";
+                break;
+        }
         return View("habitaciones/habitacion4/habitacion43");
     }
 
