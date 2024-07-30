@@ -11,8 +11,6 @@ static class Escape
     private static bool corregido = false;
     private static bool enviado = false;
     private static bool stancaHecho = false;
-    private static int sumStanca = 0;
-    private static bool[] boton = new bool[3];
     private static string codigo = String.Empty;
 
     //Metodos
@@ -145,10 +143,9 @@ static class Escape
         /*
         if ((!boton[botonNum - 1] && botonNum != 3) || (botonNum == 3 && boton[0]))
         {
-            sumStanca += num;
-            boton[botonNum - 1] = true;
+            stancaFinalizado = true;
+            return true;
         }
-        if (sumStanca >= 2) return true;
         else return false;
         */
     }
