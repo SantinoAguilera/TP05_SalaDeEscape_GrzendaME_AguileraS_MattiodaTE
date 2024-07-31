@@ -1,22 +1,27 @@
 @{
     ViewData["Title"] = "Victoria";
 }
-<body class="bodyVictoria">
-    <main class="mainHome victoriaMain">
-        <div class="victoriaLeft">
-            <img src="~/images/misc/ConfettiLeft.png" class="imagesLeft" style = "width:50%; height:auto;">
-            <img src="~/images/misc/ConfettiLeft.png" class="imagesLeft" style = "width:50%; height:auto;">
-        </div>
-        <div class="titleCenter">
-            <h1 class="victoriaTitle">FELICIDADES</h1>
-            <p class="victoriaText">¡Has escapado del CIDI! Ahora, puedes correr hacia la puerta y... no hay nadie. ¿Supongo que ahora te toca escapar de ORT?</p>
-            <p class="victoriaCliffhanger">Continuara... o no.</p>
-        </div>
-        <div class="victoriaRight">
-            <img src="~/images/misc/ConfettiRight.png" class="imagesRight" style = "width:50%; height:auto;">
-            <img src="~/images/misc/ConfettiRight.png" class="imagesRight" style = "width:50%; height:auto;">
-        </div>
-    </main>
 
-    <img src="~/images/misc/Confootteri.png" class="footerImg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@200&family=Quicksand:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+<body class="bodyVictoria">
+    <main>
+        <img src="/images/misc/ConfettiLeft.png" class="imagen izquierda">
+    
+        <div class="contenedor"> 
+            <div>
+                <h1 class="titulo">FELICIDADES</h1>
+            </div>
+            <div>
+                <p class="texto">¡Has escapado del CIDI! <br> Ahora, puedes correr hacia la puerta y... no hay nadie. <br> ¿Supongo que ahora te toca escapar de ORT?</p>
+            </div>
+            <div>
+                <p class="continuara">Continuará... o no.</p>
+            </div>
+        </div> 
+
+        <img src="/images/misc/ConfettiRight.png" class="imagen derecha">
+    </main>
 </body>

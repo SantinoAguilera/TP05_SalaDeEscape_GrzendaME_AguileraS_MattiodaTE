@@ -1,9 +1,13 @@
 @{
     ViewData["Title"] = "habitacion52";
 }
+<link href="https://fonts.cdnfonts.com/css/ionic-charge" rel="stylesheet">
 <body class="bodyGame">
     <main class="game">
-        <img src="/images/rooms/sala521.jpg" class="mainimg">
+        @{
+            string url = "/images/rooms/sala52" + ViewBag.estadoSalaID + ".jpg";
+        }
+        <img src="@url" class="mainimg">
 
         <!--CAMBIO DE POSICION-->
         <a href='@Url.Action("Habitacion", "Home", new{sala=51})' class="arrow arrow5251" tabindex="-1"></a>
@@ -22,18 +26,41 @@
         <a href='@Url.Action("BotonesCaja", "Home", new{num=0})' class="hitbox hitboxCaja0 botonCaja" tabindex="-1"></a>
         <a href='@Url.Action("CajaBackspace", "Home")' class="hitbox hitboxCajaBackspace botonCaja" tabindex="-1"></a>
 
+        <!-- CODIGO DE LA CAJA FUERTE -->
+        <p class="codigoCaja">@ViewBag.codigoCaja</p>
+
         <!-- HITBOX DEL MARCADOR ROJO -->
         <a href='@Url.Action("Marcador", "Home", new{sala=52, marcador="rojo"})' class="hitbox hitboxRojo2" tabindex="-1"></a>
     </main>
-@{
-    if (ViewBag.error == true)
-    {
-        <head>
-            <meta http-equiv="refresh" content="2; url=@Url.Action("Habitacion", "Home", new{sala=52})" />
-        </head>
-        <div class="errorMessage">
-            <h1>ERROR</h1>
-        </div>
+    @{
+        if (ViewBag.error == true)
+        {
+            <head>
+                <meta http-equiv="refresh" content="2; url=@Url.Action("Habitacion", "Home", new{sala=52})" />
+            </head>
+            <div class="errorMessage">
+                <h1>ERROR</h1>
+            </div>
+        }
+
+        if (ViewBag.estadoSalaID == 2 || ViewBag.estadoSalaID == 3)
+        {
+            <style>
+                .botonCaja{
+                    right: 100vw;
+                    left: -100vw;
+                }
+                .hitboxRojo2{
+                    top: 29.2vh;
+                    right: 22vw;
+                }
+            </style>
+        }
+        
+        if (ViewBag.estadoSalaID == 2)
+        {
+            <!-- LLAVES -->
+            <a href='@Url.Action("Llaves", "Home", new{sala=2})' class="hitbox hitboxLlave2" tabindex="-1"></a>
+        }
     }
-}
 </body>
