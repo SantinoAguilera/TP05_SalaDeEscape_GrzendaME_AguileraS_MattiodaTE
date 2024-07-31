@@ -404,6 +404,43 @@ main div
     width: 1vw;
 }
 
+.pistasButton
+{
+    position: absolute;
+    top: 23.5vh;
+    right: 7.5vw;
+}
+
+.pistas
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(225, 225, 225);
+    border-radius: 15px;
+    height: 25vh;
+    width: 30vw;
+    top: 12.5vh;
+    right: 12.7vw;
+    text-align: center;
+}
+
+.pistas p
+{
+    margin: 5vh 0vw;
+    height: 5vh;
+    width: 25vw;
+    font-size: larger;
+}
+
+.pistas div
+{
+    margin: 1vh 0vw;
+    width: 25vw;
+    justify-content: space-between;
+}
+
 /* Hitboxes */
 
 .hitbox1112{

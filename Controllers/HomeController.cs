@@ -156,9 +156,9 @@ public class HomeController : Controller
         return View("habitaciones/dialogo" + dialogo);
     }
 
-    public IActionResult Privacy()
+    public IActionResult PistasAbrir()
     {
-        return View();
+        
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
