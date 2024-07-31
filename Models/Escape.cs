@@ -11,6 +11,7 @@ static class Escape
     private static bool corregido = false;
     private static bool enviado = false;
     private static bool stancaHecho = false;
+    private static bool pistasAbiertas = false;
     private static string codigo = String.Empty;
 
     //Metodos
@@ -22,7 +23,7 @@ static class Escape
         incognitasSalas = [
             "^vivainfo$",
             "^462$",
-            @"\s*select\s+(?:contraseña|\*)\s+from\s+aulas(?<where>\s+where\s+aula\s*=\s*'ami')?;?",
+            @"^\s*select\s+(?:contraseña|\*)\s+from\s+aulas(?<where>\s+where\s+aula\s*=\s*'ami')?;?\s*$",
             "^173$",
             "025358" //0 - 25 - 3 - 58
         ];
@@ -201,5 +202,18 @@ static class Escape
             codigo = codigo.Substring(0, codigo.Length - 1);
         }
         return codigo;
+    }
+    public static bool AbrirPistas()
+    {
+        if(pistasAbiertas)
+        {
+            pistasAbiertas = false;
+            return true;
+        }
+        else
+        {
+            pistasAbiertas = true;
+            return false;
+        }
     }
 }

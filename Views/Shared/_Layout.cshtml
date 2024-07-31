@@ -6,9 +6,36 @@
         <title>@ViewData["Title"] - Data Breach</title>
         <link rel="stylesheet" href="~/css/site.css">
     </head>
-    <nav class="returnMenu">
+    <!-- VOLVER AL MENU -->
+    <nav class="gameMenu">
         <a href='@Url.Action("Index", "Home")' class="button">Menú Principal</a>
     </nav>
+    <!-- PISTAS -->
+    <div class="pistasButton">
+        <a href='@Url.Action("pajero", "Home")' class="button">Pistas</a>
+    </div>
+    <div class="pistas">
+        <div>
+            <p>Necesitas encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?</p>
+        </div>
+        <div>
+            <a href='@Url.Action("pajero", "Home")' class="button">Atrás</a>
+            <a href='@Url.Action("pajero", "Home")' class="button">Adelante</a>
+        </div>
+    </div>
+
+    <!-- FRAMEWORK MAGIC -->
     @await RenderSectionAsync("Scripts", required: false)
     @RenderBody()
+
+@{
+    /*if(ViewBag.cerrar=true)
+    {
+        <style>
+            .pistas{
+            right:100vw;
+        </style>
+        }
+    }*/
+}
 </html>

@@ -168,10 +168,10 @@ public class HomeController : Controller
         return View("habitaciones/habitacion5/habitacion5" + sala);
     }
 
-    public IActionResult Privacy()
+    /*public IActionResult PistasAbrir()
     {
-        return View();
-    }
+        
+    }*/
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
