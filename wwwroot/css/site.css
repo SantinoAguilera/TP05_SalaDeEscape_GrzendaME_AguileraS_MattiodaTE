@@ -19,7 +19,15 @@
 
 .bodyVictoria
 {
+    background-image: url(/images/misc/ConfettiGif.gif);
+    background-size: cover;
     background-color: #3066BE;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: 100vh;
 }
 
 /* Header */
@@ -103,17 +111,6 @@ header li
     text-align: center;
 }
 
-.victoriaMain
-{
-    padding-bottom: 0%;
-    width: 10px 0%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    justify-content: space-around;
-}
-
 main div
 {
     display: flex;
@@ -182,47 +179,6 @@ main div
     padding: 0.5%;
     margin: 2%;
     font-size: larger;
-}
-
-.victoriaTitle
-{
-    background-color: #6D9DC5;
-    border-radius: 50px;
-    padding: 2%;
-    margin: 2%;
-    text-align: center;
-    font-size:xx-large;
-}
-
-.victoriaText
-{
-    background-color: #6D9DC5;
-    border-radius: 50px;
-    width: 30%;
-    padding: 3%;
-    margin: 2%;
-    font-size: larger;
-}
-
-.victoriaCliffhanger
-{
-    background-color: #6D9DC5;
-    border-radius: 50px;
-    width: 30%;
-    padding: 2%;
-    margin: 2%;
-    text-align: center;
-    font-size: larger;
-}
-
-.victoriaLeft
-{
-    padding-left: 10%;
-}
-
-.victoriaRight
-{
-    padding-left: 10%;
 }
 
 .titleCenter
@@ -347,7 +303,7 @@ main div
 {
     position: absolute;
     top: 2vh;
-    left: 2vh;
+    left: 0.1vw;
     z-index: 3;
 }
 
@@ -407,10 +363,18 @@ main div
 /* Hitboxes */
 
 .hitbox1112{
-    height: 13vh;
+    height: 10vh;
     width: 10vw;
     top: 39vh;
     left: 21.8vw;
+}
+
+.hitbox1113{
+    position: absolute;
+    height: 3vh;
+    width: 8vw;
+    top: 50vh;
+    left: 67.5vw;
 }
 
 .hitboxVerde
@@ -440,7 +404,7 @@ main div
     height: 1.5vh;
     width: 3.8vw;
     top: 60.8vh;
-    left: 32.6vw;
+    left: 49.9vw;
 }
 
 .hitboxAmarillo
@@ -595,11 +559,28 @@ main div
     z-index: 1;
 }
 
+.hitboxLlave1{
+    position: absolute;
+    height: 4vh;
+    width: 3vw;
+    top: 88.7vh;
+    left: 23vw;
+    z-index: 2;
+}
+
+.hitboxLlave2{
+    position: absolute;
+    height: 10vh;
+    width: 6vw;
+    top: 59vh;
+    left: 32vw;
+}
+
 /* Flechas */
 
 .arrow1121{
     top: 80vh;
-    left: 5vw;
+    left: 7.1vw;
 }
 
 .arrow1211{
@@ -642,7 +623,8 @@ main div
 }
 
 .arrow2221{
-    right: 30vw;
+    position: absolute;
+    left: 16.5vw;
     rotate: 90deg;
 }
 
@@ -662,6 +644,7 @@ main div
 
 .arrow4121{
     top: 80vh;
+    left: 3.02vw;
 }
 
 .arrow4142{
@@ -679,17 +662,17 @@ main div
 }
 
 .arrow4342{
-    right: 30vw;
+    right: 20vw;
     rotate: 90deg;
 }
 
 .arrow5131{
     top: 80vh;
-    left: 7.5vw;
+    left: 8vw;
 }
 
 .arrow5251{
-    right: 30vw;
+    right: 15vw;
     rotate: 90deg;
 }
 
@@ -719,7 +702,7 @@ main div
     height: 3vh;
     width: 28.4vw;
     top: 16.2vh;
-    left: 14.45vw;
+    left: 17.5vw;
     color: black;
 }
 
@@ -808,6 +791,78 @@ main div
     color: white;
     top: 85.7vh;
     left: 30.6vw;
+}
+
+/* Caja fuerte */
+
+.codigoCaja{
+    position: absolute;
+    top: 51vh;
+    left: 47.2vw;
+    font-family: 'Ionic Charge', sans-serif;
+    color: white;
+    font-size: 4vh;
+}
+
+/* Victoria */
+.contenedor {
+    display: flex;
+    align-self: center;
+    width: auto;
+    height: 60vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.imagen{
+    position: absolute;
+    width: auto;
+    height: 50vh;
+}
+
+.izquierda{
+    top: 48vh;
+    left: 2vw;
+}
+
+.derecha{
+    top: 48vh;
+    right: 2vw;
+}
+
+.titulo {
+    background-color: #77b0df;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+
+    font-family: "Playfair Display", serif;
+    font-size: xx-large;
+}
+
+.texto {
+    background-color: #77b0df;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+
+    font-family: "Titillium Web", sans-serif;
+}
+
+.continuara {
+    background-color: #77b0df;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+
+    font-family: "Playwrite BE VLG", cursive;
 }
 
 /* Footer */

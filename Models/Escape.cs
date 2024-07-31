@@ -24,8 +24,12 @@ static class Escape
             "^462$",
             @"\s*select\s+(?:contraseña|\*)\s+from\s+aulas(?<where>\s+where\s+aula\s*=\s*'ami')?;?",
             "^173$",
-            "^025358$"
-        ]; //0 - 25 - 3 - 58
+            "025358" //0 - 25 - 3 - 58
+        ];
+        corregido = false;
+        enviado = false;
+        stancaHecho = false;
+        codigo = String.Empty;
     }
     public static int GetEstadoJuego()
     {
@@ -98,6 +102,8 @@ static class Escape
         else if (estadoJuego == 6) estadoSalaID[1] = 4;
         else if (estadoJuego == 8) estadoSalaID[2] = 3;
         else if (estadoJuego == 9) estadoSalaID[2] = 4;
+        else if (estadoJuego == 10) estadoSalaID[4] = 2;
+        else if (estadoJuego == 11) estadoSalaID[4] = 3;
 
         //>=
         if (estadoJuego >= 4) estadoSalaID[0] = 3;
@@ -168,29 +174,32 @@ static class Escape
             return 0;
         }
     }
-    public static void ResolverCaja(string num)
+    public static string ResolverCaja(string num)
     {
         if (codigo.Length < 6)
         {
             codigo += num;
         }
+        return codigo;
     }
     public static bool CheckearCaja()
     {
         if (codigo == incognitasSalas[contrasenaActual])
-        {   
+        {  
             return true;
         }
         else
         {
+            codigo = String.Empty;
             return false;
         }
     }
-    public static void BackspaceCaja()
+    public static string BackspaceCaja()
     {
         if (codigo.Length != 0)
         {
             codigo = codigo.Substring(0, codigo.Length - 1);
         }
+        return codigo;
     }
 }

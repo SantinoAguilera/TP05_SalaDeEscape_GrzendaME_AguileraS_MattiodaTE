@@ -3,10 +3,14 @@
 }
 <body class="bodyGame">
     <main class="game">
-        <img src="/images/rooms/sala511.jpg" class="mainimg">
+        @{
+            string url = "/images/rooms/sala51" + ViewBag.estadoSalaID + ".jpg";
+        }
+        <img src="@url" class="mainimg">
 
         <!--FLECHAS DE CAMBIO DE HABITACION-->
         <a href='@Url.Action("Habitacion", "Home", new{sala=31})' class="arrow arrow5131" tabindex="-1"></a>
+
         <div>
             <!--CAMBIO DE POSICION-->
             <a href='@Url.Action("Habitacion", "Home", new{sala=52})' class="hitbox hitbox5152" tabindex="-1"></a>
@@ -14,5 +18,34 @@
             <!-- HITBOX DEL MARCADOR ROJO -->
             <a href='@Url.Action("Marcador", "Home", new{sala=51, marcador="rojo"})' class="hitbox hitboxRojo1" tabindex="-1"></a>
         </div>
+
+        @{
+            if (ViewBag.estadoSalaID == 2 || ViewBag.estadoSalaID == 3)
+            {
+                <style>
+                    .hitbox5152{
+                        width: 14vw;
+                        height: 19vh;
+                        top: 76vh;
+                    }
+
+                    .hitboxRojo1{
+                        width: 8vw;
+                        top: 57.5vh;
+                        right: 26.2vw;
+                    }
+
+                    .arrow5131{
+                        left: 7vw;
+                    }
+                </style>
+            }
+
+            if (ViewBag.estadoSalaID == 2)
+            {
+                <!-- LLAVES -->
+                <a href='@Url.Action("Llaves", "Home", new{sala=1})' class="hitbox hitboxLlave1" tabindex="-1"></a>
+            }
+        }
     </main>
 </body>

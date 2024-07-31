@@ -13,6 +13,7 @@
 
         <!-- DE CAMBIO DE POSICION -->
         <a href='@Url.Action("Habitacion", "Home", new{sala=12})' class="hitbox hitbox1112" tabindex="-1"></a>
+        <a href='@Url.Action("Habitacion", "Home", new{sala=13})' class="hitbox hitbox1113" tabindex="-1"></a>
 
         <!-- HITBOX DEL MARCADOR VERDE -->
         <a href='@Url.Action("Marcador", "Home", new{sala=11, marcador="verde"})' class="hitbox hitboxVerde" tabindex="-1"></a>
@@ -21,6 +22,14 @@
     if (ViewBag.estadoSalaID == 2)
     {
         <style>
+            .hitbox1112{
+                left: 22.5vw;
+                top: 39.5vh;
+            }
+            .hitbox1113{
+                left: 68.5vw;
+                top: 50.5vh;
+            }
             .hitboxVerde
             {
                 height: 0.8vh;
@@ -39,6 +48,9 @@
                 width: 10vw;
                 top: 38.5vh;
                 left: 24.6vw;
+            }
+            .hitbox1113{
+                left: 70.5vw;
             }
             .hitboxVerde
             {

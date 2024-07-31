@@ -17,7 +17,7 @@
         <a href='@Url.Action("Habitacion", "Home", new{sala=22})' class="hitbox hitbox2122" tabindex="-1"></a>
 
         <!--ESCAPAR-->
-        <a href='@Url.Action("Victoria", "Home")' class="arrow arrow2161" tabindex="-1"></a> <!--6 = escapar--> <!--TO DO-->
+        <a href='@Url.Action("Victoria", "Home")' class="arrow arrow2161" tabindex="-1"></a> <!--6 = escapar-->
 
         @{
             if (ViewBag.estadoSalaID == 1)
@@ -38,6 +38,14 @@
                         top: 41.3vh;
                         right: 30.9vw;
                     }
+                    .arrow2131{
+                        left: 6vw;
+                        top: 35vh;
+                    }
+                    .arrow2161{
+                        right: 11vw;
+                        top: 35vh;
+                    }
                 </style>
             }
             else if (ViewBag.estadoSalaID == 4)
@@ -48,6 +56,16 @@
                         height: 8vh;
                         width: 8.2vw;
                         top: 46vh;
+                    }
+                    .arrow2111{
+                        left: 3.2vw;
+                    }
+                    .arrow2131{
+                        top: 38.5vh;
+                    }
+                    .arrow2161{
+                        top: 38.5vh;
+                        right: 13.5vw;
                     }
                 </style>
             }

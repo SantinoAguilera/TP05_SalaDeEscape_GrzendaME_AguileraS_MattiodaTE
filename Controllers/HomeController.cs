@@ -32,7 +32,13 @@ public class HomeController : Controller
 
     public IActionResult Victoria()
     {
-        return View();
+        if (Escape.GetEstadoJuego() < 11)
+        {
+            ViewBag.error = true;
+            ViewBag.estadoSalaID = Escape.RevisarEstadoSala(21);
+            return View("habitaciones/habitacion2/habitacion21");
+        }
+        else return View();
     }
 
     public IActionResult Comenzar()
@@ -97,15 +103,10 @@ public class HomeController : Controller
     public IActionResult BotonesStanca(int botonNum)
     {
         if (Escape.ResolverStanca(botonNum)) Escape.AvanzarEstado();
-        CartelStanca();
-        return View("habitaciones/habitacion4/habitacion43");
-    }
-
-    public IActionResult CartelStanca()
-    {
         switch(Escape.CheckearStanca())
         {
             case 0:
+                ViewBag.hechoStanca = "ERROR";
                 break;
             case 1:
                 ViewBag.hechoStanca = "CORREGIDO";
@@ -122,19 +123,23 @@ public class HomeController : Controller
 
     public IActionResult BotonesCaja(string num)
     {
-        Escape.ResolverCaja(num);
+        ViewBag.codigoCaja = Escape.ResolverCaja(num);
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
         return View("habitaciones/habitacion5/habitacion52");
     }
 
     public IActionResult CajaEnter()
     {
         if (Escape.CheckearCaja()) Escape.AvanzarEstado();
+        else ViewBag.error = true;
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
         return View("habitaciones/habitacion5/habitacion52");
     }
 
     public IActionResult CajaBackspace()
     {
-        Escape.BackspaceCaja();
+        ViewBag.codigoCaja = Escape.BackspaceCaja();
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
         return View("habitaciones/habitacion5/habitacion52");
     }
 
@@ -154,6 +159,13 @@ public class HomeController : Controller
         ViewBag.estadoDialogo = estadoDialogo;
 
         return View("habitaciones/dialogo" + dialogo);
+    }
+
+    public IActionResult Llaves(int sala)
+    {
+        Escape.AvanzarEstado();
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
+        return View("habitaciones/habitacion5/habitacion5" + sala);
     }
 
     public IActionResult Privacy()
