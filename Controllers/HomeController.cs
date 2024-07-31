@@ -39,13 +39,22 @@ public class HomeController : Controller
     {
         Escape.InicializarJuego();
         ViewBag.estadoSalaID = 1;
+        ViewBag.mostrarPistas = false;
+        FiltrarPistas();
         return View("habitaciones/habitacion1/habitacion11");
     }
 
-    public IActionResult Habitacion(int sala, int salaAnterior = 0, int estadoMin = 0, int contrasenaAceptada = -1)
+    public IActionResult CambiarPista(int sala, int boton)
+    {
+        Escape.PistasCambiar(boton);
+        return base.RedirectToAction("Habitacion", new {sala, mostrarPistas = true});
+    }
+
+    public IActionResult Habitacion(int sala, int salaAnterior = 0, int estadoMin = 0, int contrasenaAceptada = -1, bool mostrarPistas = false)
     {
         string url;
-        if (Escape.GetEstadoJuego() >= estadoMin)
+        int estadoJuego = Escape.GetEstadoJuego();
+        if (estadoJuego >= estadoMin)
         {
             ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
             url = "habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala;
@@ -58,11 +67,25 @@ public class HomeController : Controller
             ViewBag.contrasenaAceptada = contrasenaAceptada;
             url = "contrasena";
         }
+
+        FiltrarPistas();
+        ViewBag.mostrarPistas = mostrarPistas;
+
         return View("habitaciones/" + url);
     }
 
-    public IActionResult Resolver(int sala, string contrasena)
+    private void FiltrarPistas()
     {
+        int estadoJuego = Escape.GetEstadoJuego();
+        if (Escape.pistas.TryGetValue(estadoJuego, out InfoPistas? infoPistas))
+        {
+            ViewData["Pistas"] = infoPistas.Pistas;
+            ViewData["Posicion"] = infoPistas.Posicion;
+        }
+    }
+
+    public IActionResult Resolver(int sala, string contrasena)
+    {   
         if (Escape.ResolverSala(contrasena, -1))
         {
             Escape.AvanzarEstado();
@@ -73,6 +96,7 @@ public class HomeController : Controller
             ViewBag.error = true;
         }
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+        FiltrarPistas();
         return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala);
     }
 
@@ -154,11 +178,6 @@ public class HomeController : Controller
         ViewBag.estadoDialogo = estadoDialogo;
 
         return View("habitaciones/dialogo" + dialogo);
-    }
-
-    public IActionResult PistasAbrir()
-    {
-        
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

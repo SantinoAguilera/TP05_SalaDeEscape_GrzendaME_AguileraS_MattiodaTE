@@ -1,6 +1,12 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
+public record InfoPistas
+{
+    public List<string> Pistas { get; set; } = null!;
+    public int Posicion { get; set; }
+}
+
 static class Escape
 {
     //Atributos
@@ -11,8 +17,63 @@ static class Escape
     private static bool corregido = false;
     private static bool enviado = false;
     private static bool stancaHecho = false;
-    private static bool pistasAbiertas = false;
     private static string codigo = String.Empty;
+
+    public static Dictionary<int, InfoPistas> pistas = new()
+    {
+        [1] = new()
+        {
+            Pistas = 
+            [
+                "Necesitas encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
+                "A veces las personas dejan sus contraseñas escritas en los lugares más obvios!",
+            ],
+            Posicion = 0,
+        },
+        [3] = new()
+        {
+            Pistas = 
+            [
+                "Buscá a alguien que te pueda abrir la puerta.",
+            ],
+            Posicion = 0,
+        },
+        [4] = new()
+        {
+            Pistas = 
+            [
+                "Revisá la computadora prendida de la primera fila.",
+                "Buscá la contraseña del AMI entre las contraseñas.",
+                "Pista “Necesito ayuda con SQL”: Para buscar la contraseña del AMI hay que escribir: select contraseña from aulas... ???",
+            ],
+            Posicion = 0,
+        },
+        [5] = new()
+        {
+            Pistas = 
+            [
+                "De donde exactamente queres la contraseña?",
+                "Pista “No sé SQL”: Para buscar la contraseña del AMI hay que escribir: select contraseña from aulas where aula = 'AMI';",
+            ],
+            Posicion = 0,
+        },
+        [7] = new()
+        {
+            Pistas = 
+            [
+                "¿Qué significará ese marcador arriba de la caja fuerte?",
+                "Buscá más marcadores.",
+                "Revisá la computadora del CIDI.",
+                "Revisá abajo de la mesa del HMP.",
+                "Revisá el proyector del AMI.",
+                "Los marcadores son de distintos colores y tienen distintos números, ¿qué significará?",
+                "Revisá las computadoras prendidas en el AMI.",
+                "Los números de las computadoras son un orden.",
+                "Primero va el marcador del mismo color que el 1. Después lo mismo, con los números que le siguen.",
+            ],
+            Posicion = 0,
+        },
+    };
 
     //Metodos
     public static void InicializarJuego()
@@ -194,17 +255,19 @@ static class Escape
             codigo = codigo.Substring(0, codigo.Length - 1);
         }
     }
-    public static bool AbrirPistas()
+    public static void PistasCambiar(int boton)
     {
-        if(pistasAbiertas)
+        int estadoJuego = GetEstadoJuego();
+        var infoPistas = pistas[estadoJuego];
+        if (boton < 0)
         {
-            pistasAbiertas = false;
-            return true;
+            infoPistas.Posicion -= 1;
+            if (infoPistas.Posicion < 0) infoPistas.Posicion = infoPistas.Pistas.Count - 1;
         }
         else
         {
-            pistasAbiertas = true;
-            return false;
+            infoPistas.Posicion += 1;
+            if (infoPistas.Posicion > infoPistas.Pistas.Count - 1) infoPistas.Posicion = 0;
         }
     }
 }

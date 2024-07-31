@@ -416,28 +416,27 @@ main div
     position: absolute;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     background-color: rgb(225, 225, 225);
     border-radius: 15px;
-    height: 25vh;
-    width: 30vw;
+    height: 25ex;
+    width: 60ex;
     top: 12.5vh;
     right: 12.7vw;
+}
+
+.pistas .pistasTexto
+{
+    margin: 5px;
+    font-size: larger;
     text-align: center;
 }
 
-.pistas p
+.pistas .pistasBotones
 {
-    margin: 5vh 0vw;
-    height: 5vh;
-    width: 25vw;
-    font-size: larger;
-}
-
-.pistas div
-{
-    margin: 1vh 0vw;
-    width: 25vw;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 

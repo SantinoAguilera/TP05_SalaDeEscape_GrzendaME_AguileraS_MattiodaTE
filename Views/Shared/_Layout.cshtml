@@ -5,37 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@ViewData["Title"] - Data Breach</title>
         <link rel="stylesheet" href="~/css/site.css">
+        <script type="text/javascript" src="~/js/site.js"></script>
     </head>
     <!-- VOLVER AL MENU -->
     <nav class="gameMenu">
         <a href='@Url.Action("Index", "Home")' class="button">Menú Principal</a>
     </nav>
+@{
+    string style;
+    if (ViewBag.mostrarPistas ?? true)
+    {
+        style = "display: flex;";
+    }
+    else
+    {
+        style = "display: none;";
+    }
+}
+@{
+    if (ViewData.ContainsKey("Pistas")) {
     <!-- PISTAS -->
     <div class="pistasButton">
-        <a href='@Url.Action("pajero", "Home")' class="button">Pistas</a>
+        <a href='#' class="button" onclick="abrirCerrarPistas();">Pistas</a>
     </div>
-    <div class="pistas">
-        <div>
-            <p>Necesitas encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?</p>
+    <div id="pistas" class="pistas" style="@style">
+        <div class="pistasTexto">
+            @{
+                var pistas = (List<string>)ViewData["Pistas"];
+                var posicion = (int)ViewData["Posicion"];
+                string title = ViewData["Title"].ToString();
+                string sala = title.Substring(title.Length - 2, 2);
+            }
+            @pistas[posicion]
         </div>
-        <div>
-            <a href='@Url.Action("pajero", "Home")' class="button">Atrás</a>
-            <a href='@Url.Action("pajero", "Home")' class="button">Adelante</a>
+        <div class="pistasBotones">
+            <a href='@Url.Action("CambiarPista", "Home", new{sala, boton=-1})' class="button">Atrás</a>
+            <a href='@Url.Action("CambiarPista", "Home", new{sala, boton=+1})' class="button">Adelante</a>
         </div>
     </div>
-
+    }
+}
     <!-- FRAMEWORK MAGIC -->
     @await RenderSectionAsync("Scripts", required: false)
     @RenderBody()
-
-@{
-    /*if(ViewBag.cerrar=true)
-    {
-        <style>
-            .pistas{
-            right:100vw;
-        </style>
-        }
-    }*/
-}
 </html>
