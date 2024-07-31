@@ -125,10 +125,19 @@ main div
     padding-right: 5%;
 }
 
-.imagesLeft img
+.imagenMenu
 {
-    height: 100px;
-    width: 300px;
+    height: 24vh;
+    width: 32vh;
+    margin-bottom: 1vh;
+}
+
+.imagenCreditos
+{
+    height: 32vh;
+    width: 48vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 /* Text and Positioning Styles */
@@ -207,12 +216,6 @@ main div
     float: right;
     padding-right: 10%;
     padding-left: 5%;
-}
-
-.imagesRight img
-{
-    height: 100px;
-    width: 300px;
 }
 
 .spaceBetween
