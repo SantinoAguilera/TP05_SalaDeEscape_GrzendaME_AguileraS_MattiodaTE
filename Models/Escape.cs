@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 static class Escape
 {
     //Atributos
-    public static string[] incognitasSalas {get; private set;} = null!;
+    public static string[] incognitasSalas {get; private set;}
     public static int estadoJuego = 1;
     public static int contrasenaActual = 0;
     public static int[] estadoSalaID = new int[5];
@@ -18,7 +18,7 @@ static class Escape
     {
         {1, 
             [
-                "Necesités encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
+                "Necesitás encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
                 "¡A veces las personas dejan sus contraseñas escritas en los lugares más obvios!"
             ]
         },
@@ -98,6 +98,7 @@ static class Escape
     public static void AvanzarEstado()
     {
         estadoJuego++;
+        pistaActual = 0;
     }
     public static bool ResolverSala(string incognita, int contrasenaAceptada)
     {
