@@ -1,3 +1,4 @@
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
@@ -34,35 +35,41 @@ public class HomeController : Controller
     {
         if (Escape.GetEstadoJuego() < 11)
         {
-            ViewBag.error = true;
+            ViewBag.pista = Escape.SeleccionarPista(2);
+            ViewBag.mostrarPistas = Escape.mostrarPistas;
+            ViewBag.llaves = false;
+            ViewBag.salaID = 21;
             ViewBag.estadoSalaID = Escape.RevisarEstadoSala(21);
             return View("habitaciones/habitacion2/habitacion21");
         }
         else return View();
     }
 
+    public IActionResult ConfirmarMenu(int sala)
+    {
+        ViewBag.salaID = sala;
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+        return View("habitaciones/confirmarmenu");
+    }
+
     public IActionResult Comenzar()
     {
         Escape.InicializarJuego();
+        ViewBag.pista = Escape.SeleccionarPista(2);
         ViewBag.estadoSalaID = 1;
+        ViewBag.salaID = 11;
         ViewBag.mostrarPistas = false;
-        FiltrarPistas();
         return View("habitaciones/habitacion1/habitacion11");
     }
 
-    public IActionResult CambiarPista(int sala, int boton)
-    {
-        Escape.PistasCambiar(boton);
-        return base.RedirectToAction("Habitacion", new {sala, mostrarPistas = true});
-    }
-
-    public IActionResult Habitacion(int sala, int salaAnterior = 0, int estadoMin = 0, int contrasenaAceptada = -1, bool mostrarPistas = false)
+    public IActionResult Habitacion(int sala, int salaAnterior = 0, int estadoMin = 0, int contrasenaAceptada = -1)
     {
         string url;
         int estadoJuego = Escape.GetEstadoJuego();
         if (estadoJuego >= estadoMin)
         {
             ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+            ViewBag.salaID = sala;
             url = "habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala;
         }
         else
@@ -74,35 +81,22 @@ public class HomeController : Controller
             url = "contrasena";
         }
 
-        FiltrarPistas();
-        ViewBag.mostrarPistas = mostrarPistas;
+        ViewBag.mostrarPistas = false;
+        Escape.mostrarPistas = false;
+        ViewBag.pista = Escape.SeleccionarPista(2);
 
         return View("habitaciones/" + url);
     }
 
-    private void FiltrarPistas()
-    {
-        int estadoJuego = Escape.GetEstadoJuego();
-        if (Escape.pistas.TryGetValue(estadoJuego, out InfoPistas? infoPistas))
-        {
-            ViewData["Pistas"] = infoPistas.Pistas;
-            ViewData["Posicion"] = infoPistas.Posicion;
-        }
-    }
-
     public IActionResult Resolver(int sala, string contrasena)
     {   
-        if (Escape.ResolverSala(contrasena, -1))
-        {
-            Escape.AvanzarEstado();
-            if (Escape.GetEstadoJuego() == 5 && contrasena.ToLower() == Escape.incognitasSalas[2]) Escape.AvanzarEstado(); //Lo avanzo de nuevo para saltear la respuesta incorrecta
-        }
-        else
-        {
-            ViewBag.error = true;
-        }
+        if (Escape.ResolverSala(contrasena, -1)) Escape.AvanzarEstado();
+        else ViewBag.error = true;
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
-        FiltrarPistas();
+        ViewBag.salaID = sala;
+        ViewBag.mostrarPistas = false;
+        Escape.mostrarPistas = false;
+        ViewBag.pista = Escape.SeleccionarPista(2);
         return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala);
     }
 
@@ -113,14 +107,19 @@ public class HomeController : Controller
         {
             Escape.AvanzarEstado();
             ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+            ViewBag.salaID = sala;
             url = sala.ToString().Substring(0, 1) + "/habitacion" + sala;
         }
         else
         {
             ViewBag.estadoSalaID = Escape.RevisarEstadoSala(salaAnterior);
+            ViewBag.salaID = salaAnterior;
             url = salaAnterior.ToString().Substring(0, 1) + "/habitacion" + salaAnterior;
             ViewBag.error = true;
         }
+        ViewBag.mostrarPistas = false;
+        Escape.mostrarPistas = false;
+        ViewBag.pista = Escape.SeleccionarPista(2);
         return View("habitaciones/habitacion" + url);
     }
 
@@ -142,6 +141,11 @@ public class HomeController : Controller
                 ViewBag.hechoStanca = "how, enviar no se puede tocar antes de corregir";
                 break;
         }
+        ViewBag.mostrarPistas = Escape.mostrarPistas;
+        ViewBag.pista = Escape.SeleccionarPista(2);
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(43);
+        ViewBag.salaID = 43;
+
         return View("habitaciones/habitacion4/habitacion43");
     }
 
@@ -149,6 +153,9 @@ public class HomeController : Controller
     {
         ViewBag.codigoCaja = Escape.ResolverCaja(num);
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
+        ViewBag.salaID = 52;
+        ViewBag.mostrarPistas = Escape.mostrarPistas;
+        ViewBag.pista = Escape.SeleccionarPista(2);
         return View("habitaciones/habitacion5/habitacion52");
     }
 
@@ -157,6 +164,9 @@ public class HomeController : Controller
         if (Escape.CheckearCaja()) Escape.AvanzarEstado();
         else ViewBag.error = true;
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
+        ViewBag.salaID = 52;
+        ViewBag.mostrarPistas = Escape.mostrarPistas;
+        ViewBag.pista = Escape.SeleccionarPista(2);
         return View("habitaciones/habitacion5/habitacion52");
     }
 
@@ -164,6 +174,9 @@ public class HomeController : Controller
     {
         ViewBag.codigoCaja = Escape.BackspaceCaja();
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
+        ViewBag.salaID = 52;
+        ViewBag.mostrarPistas = Escape.mostrarPistas;
+        ViewBag.pista = Escape.SeleccionarPista(2);
         return View("habitaciones/habitacion5/habitacion52");
     }
 
@@ -171,6 +184,7 @@ public class HomeController : Controller
     {
         ViewBag.salaID = sala;
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+        ViewBag.salaID = sala;
         ViewBag.marcador = marcador;
 
         return View("habitaciones/marcador");
@@ -180,6 +194,7 @@ public class HomeController : Controller
     {
         if (estadoDialogo == 0) Escape.AvanzarEstado();
 
+        ViewBag.salaID = 31;
         ViewBag.estadoDialogo = estadoDialogo;
 
         return View("habitaciones/dialogo" + dialogo);
@@ -189,13 +204,18 @@ public class HomeController : Controller
     {
         Escape.AvanzarEstado();
         ViewBag.estadoSalaID = Escape.RevisarEstadoSala(52);
+        ViewBag.salaID = 50 + sala;
         return View("habitaciones/habitacion5/habitacion5" + sala);
     }
 
-    /*public IActionResult PistasAbrir()
+    public IActionResult Pistas(int sala, int boton = 0)
     {
-        
-    }*/
+        ViewBag.pista = Escape.SeleccionarPista(boton);
+        ViewBag.mostrarPistas = Escape.mostrarPistas;
+        ViewBag.estadoSalaID = Escape.RevisarEstadoSala(sala);
+        ViewBag.salaID = sala;
+        return View("habitaciones/habitacion" + sala.ToString().Substring(0, 1) + "/habitacion" + sala);
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

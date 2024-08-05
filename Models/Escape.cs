@@ -1,12 +1,6 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
-public record InfoPistas
-{
-    public List<string> Pistas { get; set; } = null!;
-    public int Posicion { get; set; }
-}
-
 static class Escape
 {
     //Atributos
@@ -18,61 +12,63 @@ static class Escape
     private static bool enviado = false;
     private static bool stancaHecho = false;
     private static string codigo = String.Empty;
-
-    public static Dictionary<int, InfoPistas> pistas = new()
+    public static bool mostrarPistas = false;
+    private static int pistaActual = 0;
+    public static Dictionary<int, string[]> pistas = new Dictionary<int, string[]>
     {
-        [1] = new()
-        {
-            Pistas = 
+        {1, 
             [
-                "Necesitas encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
-                "A veces las personas dejan sus contraseñas escritas en los lugares más obvios!",
-            ],
-            Posicion = 0,
+                "Necesités encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
+                "¡A veces las personas dejan sus contraseñas escritas en los lugares más obvios!"
+            ]
         },
-        [3] = new()
-        {
-            Pistas = 
+        {3,
             [
-                "Buscá a alguien que te pueda abrir la puerta.",
-            ],
-            Posicion = 0,
+                "Buscá a alguien que te pueda abrir la puerta."
+            ]
         },
-        [4] = new()
-        {
-            Pistas = 
+        {4,
             [
-                "Revisá la computadora prendida de la primera fila.",
+                "Revisá la computadora prendida en el CIDI.",
                 "Buscá la contraseña del AMI entre las contraseñas.",
-                "Pista “Necesito ayuda con SQL”: Para buscar la contraseña del AMI hay que escribir: select contraseña from aulas... ???",
-            ],
-            Posicion = 0,
+                "Pista “Necesito ayuda con SQL”: Para buscar todas las contraseñas hay que escribir: select contraseña from aulas."
+            ]
         },
-        [5] = new()
-        {
-            Pistas = 
+        {5,
             [
-                "De donde exactamente queres la contraseña?",
-                "Pista “No sé SQL”: Para buscar la contraseña del AMI hay que escribir: select contraseña from aulas where aula = 'AMI';",
-            ],
-            Posicion = 0,
+                "¿De dónde exactamente querés la contraseña?",
+                "Pista “No sé SQL”: Para buscar la contraseña del AMI hay que escribir: select contraseña from aulas where aula = 'AMI';"
+            ]
         },
-        [7] = new()
-        {
-            Pistas = 
+        {6,
+            [
+                "Stancatrón te pidió que corrijas y envíes las pruebas, podés hacer eso en la computadora en el fondo del AMI. Después de hacerlo, volvé a hablar con él."
+            ]
+        },
+        {7,
+            [
+                "Stancatrón te pidió que corrijas y envíes las pruebas, podés hacer eso en la computadora en el fondo del AMI. Después de hacerlo, volvé a hablar con él."
+            ]
+        },
+        {8,
+            [
+                "Volvé a hablar con Stancatrón."
+            ]
+        },
+        {9,
             [
                 "¿Qué significará ese marcador arriba de la caja fuerte?",
-                "Buscá más marcadores.",
-                "Revisá la computadora del CIDI.",
+                "¿Quizás hayan más marcadores?",
+                "Hay un marcador por habitación, excepto en la que está Stancatrón.",
                 "Revisá abajo de la mesa del HMP.",
+                "Revisá la computadora del CIDI.",
                 "Revisá el proyector del AMI.",
                 "Los marcadores son de distintos colores y tienen distintos números, ¿qué significará?",
-                "Revisá las computadoras prendidas en el AMI.",
-                "Los números de las computadoras son un orden.",
-                "Primero va el marcador del mismo color que el 1. Después lo mismo, con los números que le siguen.",
-            ],
-            Posicion = 0,
-        },
+                "Las computadoras del AMI tienen una pista.",
+                "Los números de las computadoras son el orden.",
+                "Primero va el marcador del mismo color que el 1. Después lo mismo, con los números que le siguen."
+            ]
+        }
     };
 
     //Metodos
@@ -92,6 +88,8 @@ static class Escape
         enviado = false;
         stancaHecho = false;
         codigo = String.Empty;
+        mostrarPistas = false;
+        pistaActual = 0;
     }
     public static int GetEstadoJuego()
     {
@@ -107,7 +105,8 @@ static class Escape
         if (contrasenaAceptada == contrasenaActual || contrasenaAceptada == -1)
         {
             Regex regex = new(incognitasSalas[contrasenaActual]);
-            var match = regex.Match(incognita.ToLower());
+            if (contrasenaActual != 0) incognita = incognita.ToLower();
+            var match = regex.Match(incognita);
             if (match.Success)
             {
                 if (contrasenaActual == 2)
@@ -133,18 +132,6 @@ static class Escape
                 }
                 return true;
             }
-            /*
-            else if (contrasenaActual == 2) //Tuve que hardcodearlo :(
-            {
-                if (incognita.ToLower() == incognitasSalas[contrasenaActual])
-                {
-                    contrasenaActual++;
-                    return true;
-                }
-                else if (incognita.ToLower() == "select contraseña from aulas;" && estadoJuego != 5) return true;
-                else return false;
-            }
-            */
             else return false;
         }
         else return false;
@@ -208,14 +195,6 @@ static class Escape
         {
             return false;
         }
-        /*
-        if ((!boton[botonNum - 1] && botonNum != 3) || (botonNum == 3 && boton[0]))
-        {
-            stancaFinalizado = true;
-            return true;
-        }
-        else return false;
-        */
     }
     public static int CheckearStanca()
     {
@@ -264,19 +243,18 @@ static class Escape
         }
         return codigo;
     }
-    public static void PistasCambiar(int boton)
+    public static string SeleccionarPista(int boton)
     {
-        int estadoJuego = GetEstadoJuego();
-        var infoPistas = pistas[estadoJuego];
-        if (boton < 0)
+        if (boton == 0) mostrarPistas = !mostrarPistas;
+
+        if (boton != 2) pistaActual += boton;
+        
+        if (pistas.ContainsKey(estadoJuego))
         {
-            infoPistas.Posicion -= 1;
-            if (infoPistas.Posicion < 0) infoPistas.Posicion = infoPistas.Pistas.Count - 1;
+            if (pistaActual < 0) pistaActual++;
+            else if (pistaActual > pistas[estadoJuego].Length - 1) pistaActual--;
+            return pistas[estadoJuego][pistaActual];
         }
-        else
-        {
-            infoPistas.Posicion += 1;
-            if (infoPistas.Posicion > infoPistas.Pistas.Count - 1) infoPistas.Posicion = 0;
-        }
+        else return null;
     }
 }

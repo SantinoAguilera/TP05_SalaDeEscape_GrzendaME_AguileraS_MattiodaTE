@@ -3,44 +3,60 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Data Breach</title>
+        <title>Data Breach - @ViewData["Title"]</title>
         <link rel="stylesheet" href="~/css/site.css">
         <script type="text/javascript" src="~/js/site.js"></script>
     </head>
-    <!-- VOLVER AL MENU -->
-    <nav class="gameMenu">
-        <a href='@Url.Action("Index", "Home")' class="button">Menú Principal</a>
-    </nav>
+
 @{
-    string style;
-    if (ViewBag.mostrarPistas ?? true)
+    string title = ViewData["Title"].ToString();
+    string sala = title.Substring(title.Length - 2, 2);
+
+    <!-- VOLVER AL MENU -->
+    if (title == "contrasena")
     {
-        style = "display: flex;";
+        <nav class="gameMenu">
+            <a href='@Url.Action("ConfirmarMenu", "Home", new{sala = ViewBag.salaAnteriorID})' class="button">Menú Principal</a>
+        </nav>
+    }
+    else if (title == "victoria")
+    {
+        <nav class="gameMenu">
+            <a href='@Url.Action("Index", "Home")' class="button">Menú Principal</a>
+        </nav>
     }
     else
     {
-        style = "display: none;";
+        <nav class="gameMenu">
+            <a href='@Url.Action("ConfirmarMenu", "Home", new{sala = ViewBag.salaID})' class="button">Menú Principal</a>
+        </nav>
     }
-}
-@{
-    if (ViewData.ContainsKey("Pistas")) {
+
+    string style;
+    if (ViewBag.mostrarPistas != null && ViewBag.mostrarPistas) style = "display: flex;";
+    else style = "display: none;";
+
     <!-- PISTAS -->
+    if (ViewBag.pista != null && title != "contrasena")
+    {
     <div class="pistasButton">
-        <a href='#' class="button" onclick="abrirCerrarPistas();">Pistas</a>
+        @if (style == "display: none;")
+        {
+            <a href='@Url.Action("Pistas", "Home", new{sala})' class="button">Pistas</a>
+        }
+        else
+        {
+            <a href='@Url.Action("Pistas", "Home", new{sala})' class="button">Cerrar</a>
+        }
     </div>
     <div id="pistas" class="pistas" style="@style">
+        <a href='@Url.Action("Pistas", "Home", new{sala})' class="cerrarPistas">x</a>
         <div class="pistasTexto">
-            @{
-                var pistas = (List<string>)ViewData["Pistas"];
-                var posicion = (int)ViewData["Posicion"];
-                string title = ViewData["Title"].ToString();
-                string sala = title.Substring(title.Length - 2, 2);
-            }
-            @pistas[posicion]
+            @ViewBag.pista
         </div>
         <div class="pistasBotones">
-            <a href='@Url.Action("CambiarPista", "Home", new{sala, boton=-1})' class="button">Atrás</a>
-            <a href='@Url.Action("CambiarPista", "Home", new{sala, boton=+1})' class="button">Adelante</a>
+            <a href='@Url.Action("Pistas", "Home", new{sala, boton=-1})' class="button">Atrás</a>
+            <a href='@Url.Action("Pistas", "Home", new{sala, boton=1})' class="button">Adelante</a>
         </div>
     </div>
     }

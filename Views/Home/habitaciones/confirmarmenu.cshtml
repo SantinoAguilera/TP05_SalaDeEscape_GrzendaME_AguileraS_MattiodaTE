@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "confirmarmenu";
+}
+<body class="bodyGame">
+    <main class="game">
+        @{
+            int estadoSalaID = ViewBag.estadoSalaID;
+            if (ViewBag.salaID == 31 && ViewBag.estadoSalaID == 4) estadoSalaID = 3;
+            string url = "/images/rooms/sala" + ViewBag.salaID + estadoSalaID + ".jpg";
+        }
+        <img src="@url" class="mainimg darkened">
+
+        <!--FLECHA PARA VOLVER HACIA ATRAS-->
+        <a href="#" onclick="history.go(-1);" class="arrow arrow2221"></a> <!--Le puse arrow2221 porque usa exactamente el mismo estilo, no voy a crear una clase para esto-->
+
+        <!--TEXTO-->
+        <h1 class="tituloConfirmarMenu">¿Querés volver al menú principal?</h1>
+        <p class="textoConfirmarMenu">Se perderá todo tu progreso.</p>
+
+        <!--BOTÓN DE MENÚ PRINCIPAL-->
+        <nav class="confirmarMenu">
+            <a href='@Url.Action("Index", "Home")' class="button">Menú Principal</a>
+        </nav>
+    </main>
+</body>

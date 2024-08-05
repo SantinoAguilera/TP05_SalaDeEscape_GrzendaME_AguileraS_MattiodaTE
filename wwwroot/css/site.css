@@ -243,13 +243,13 @@ main div
 .circleLeft
 {
     margin-right: auto;
-    margin-left: 5%;
+    margin-left: 4vw;
 }
 
 .circleRight
 {
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 4vw;
 }
 
 .tutorialText
@@ -320,16 +320,32 @@ main div
     position: absolute;
     background-color: rgb(175, 20, 20);
     text-align: center;
-    height: 5.7vh;
-    width: 15vh;
-    top: 94.32vh;
-    right: 79.02vw;
+    height: 5vh;
+    width: 8vw;
+    top: 95vh;
+    left: 12.52vw;
     color: white;
 }
 
 .errorMessage h1
 {
     font-size: 3.5vh;
+}
+
+.keyErrorMessage{
+    position: absolute;
+    text-align: center;
+    width: max-content;
+    height: 2vh;
+    top: 97vh;
+    color: goldenrod;
+}
+
+.keyErrorMessage h1
+{
+    display: inline-block;
+    text-shadow: 0.2vh 0 black, -0.2vh 0 black, 0 0.2vh black, 0 -0.2vh black, 0.1vh 0.1vh black, -0.1vh -0.1vh black, 0.1vh -0.1vh black, -0.1vh 0.1vh black; /* Borde del texto (son 8 sombras, una en cada dirección) */
+    font-size: 2vh;
 }
 
 /* Interactuables */
@@ -368,6 +384,7 @@ main div
     position: absolute;
     top: 23.5vh;
     right: 7.5vw;
+    z-index: 5;
 }
 
 .pistas
@@ -383,11 +400,13 @@ main div
     width: 60ex;
     top: 12.5vh;
     right: 12.7vw;
+    z-index: 5;
 }
 
 .pistas .pistasTexto
 {
     margin: 5px;
+    width: 90%;
     font-size: larger;
     text-align: center;
 }
@@ -397,6 +416,16 @@ main div
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.cerrarPistas
+{
+    position: absolute;
+    bottom: 16vh;
+    left: 24vw;
+    font-size: 20px;
+    color: rgb(112, 112, 112);
+    text-decoration: none;
 }
 
 /* Hitboxes */
@@ -902,6 +931,33 @@ main div
     text-align: center;
 
     font-family: "Playwrite BE VLG", cursive;
+}
+
+/* Confirmar volver al menú principal */
+
+.tituloConfirmarMenu{
+    position: absolute;
+    top: 30vh;
+    color: white;
+    font-size: 5vh;
+}
+
+.textoConfirmarMenu{
+    position: absolute;
+    top: 37vh;
+    color: white;
+    font-size: 2vh;
+}
+
+.confirmarMenu{
+    position: absolute;
+    top: 60vh;
+}
+
+.confirmarMenu a{
+    margin-left: 0;
+    border-radius: 20px;
+    font-size: 4vh;
 }
 
 /* Footer */

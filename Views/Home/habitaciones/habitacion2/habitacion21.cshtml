@@ -78,6 +78,15 @@
                     <h1>ERROR</h1>
                 </div>
             }
+            if (ViewBag.llaves == false)
+            {
+                <head>
+                    <meta http-equiv="refresh" content="2; url=@Url.Action("Habitacion", "Home", new{sala=21})" />
+                </head>
+                <div class="keyErrorMessage">
+                    <h1>No tenés las llaves de la puerta.</h1>
+                </div>
+            }
         }
     </main>
 </body>
