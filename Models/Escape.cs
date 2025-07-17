@@ -16,47 +16,47 @@ static class Escape
     private static int pistaActual = 0;
     public static Dictionary<int, string[]> pistas = new Dictionary<int, string[]>
     {
-        {1, 
-            [
-                "Necesitás encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
-                "¡A veces las personas dejan sus contraseñas escritas en los lugares más obvios!"
-            ]
+        {1, new string[]
+        {
+            "Necesitás encontrar una contraseña para la puerta. ¿Quizás está guardada en esa computadora?",
+            "¡A veces las personas dejan sus contraseñas escritas en los lugares más obvios!"
+        }
         },
-        {3,
-            [
+        {3, new string[]
+            {
                 "Buscá a alguien que te pueda abrir la puerta."
-            ]
+            }
         },
-        {4,
-            [
+        {4, new string[]
+            {
                 "Revisá la computadora prendida en el CIDI.",
                 "Buscá la contraseña del AMI entre las contraseñas.",
                 "Pista “Necesito ayuda con SQL”: Para buscar todas las contraseñas hay que escribir: select contraseña from aulas."
-            ]
+            }
         },
-        {5,
-            [
+        {5, new string[]
+            {
                 "¿De dónde exactamente querés la contraseña?",
                 "Pista “No sé SQL”: Para buscar la contraseña del AMI hay que escribir: select contraseña from aulas where aula = 'AMI';"
-            ]
+            }
         },
-        {6,
-            [
+        {6, new string[]
+            {
                 "Stancatrón te pidió que corrijas y envíes las pruebas, podés hacer eso en la computadora en el fondo del AMI. Después de hacerlo, volvé a hablar con él."
-            ]
+            }
         },
-        {7,
-            [
+        {7, new string[]
+            {
                 "Stancatrón te pidió que corrijas y envíes las pruebas, podés hacer eso en la computadora en el fondo del AMI. Después de hacerlo, volvé a hablar con él."
-            ]
+            }
         },
-        {8,
-            [
+        {8, new string[]
+            {
                 "Volvé a hablar con Stancatrón."
-            ]
+            }
         },
-        {9,
-            [
+        {9, new string[]
+            {
                 "¿Qué significará ese marcador arriba de la caja fuerte?",
                 "¿Quizás hayan más marcadores?",
                 "Hay un marcador por habitación, excepto en la que está Stancatrón.",
@@ -67,7 +67,7 @@ static class Escape
                 "Las computadoras del AMI tienen una pista.",
                 "Los números de las computadoras son el orden.",
                 "Primero va el marcador del mismo color que el 1. Después lo mismo, con los números que le siguen."
-            ]
+            }
         }
     };
 
@@ -77,13 +77,13 @@ static class Escape
         estadoJuego = 1;
         contrasenaActual = 0;
         for(int i = 0; i < 5; i++) estadoSalaID[i] = 1;
-        incognitasSalas = [
+        incognitasSalas = new string[] {
             "^vivainfo$",
             "^462$",
             @"^\s*select\s+(?:contraseña|\*)\s+from\s+aulas(?<where>\s+where\s+aula\s*=\s*'ami')?;?\s*$",
             "^173$",
             "025358" //0 - 25 - 3 - 58
-        ];
+        };
         corregido = false;
         enviado = false;
         stancaHecho = false;
